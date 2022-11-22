@@ -2,6 +2,7 @@
 Software Praktikum 
 
 HelpDesk wurde mit XAMPP erstellt und getestet mit folgenden Konfigurationen:
+
 Datenbank-Server:
   Server: 127.0.0.1 via TCP/IP
   Server-Typ: MariaDB
