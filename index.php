@@ -82,20 +82,38 @@
           <option>Maus/Tastatur</option>
           <option>Drucker</option>
           <option>Sonstiges</option>
+      </select>
     </div>
   </div>
 
+
+
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-8">
       <h5>Problembeschreibung und bisherige Lösungsansätze</h5>
-      <input type="text" class="form-control" placeholder="Ein Neustart hat das Problem nicht gelöst." name="loesungsversuche">
+      <div class="input-group">
+        <textarea class="form-control" aria-label="With textarea">test</textarea>
+      </div>
     </div>
     <div class="col-sm-4">
       <h5>Screenshot-Upload</h5>
 
     </div>
   </div>
-dfsdfdsdsfdsfdsfdsfs
+
+  <div class="row">
+      <fieldset>
+        <input type="checkbox" class="form-check-input" id="checkbox">
+        Ich stimme der Speicherung meiner E-Mailadresse für die Kontaktaufnahme zu
+      </fieldset>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <button type="button" name="absenden">Absenden</button>
+    </div>
+  </div>
+
 </div>
 
 </body>
