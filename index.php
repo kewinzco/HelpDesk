@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"type="text/javascript"></script>
 </head>
 <body>
 
@@ -23,7 +26,7 @@
       <h5>E-Mail</h5>
       <div class="input-group sm-4">
           <span class="input-group-text">@</span>
-          <input type="text" class="form-control" placeholder="beispiel@help-desk.de" name="email">
+          <input type="text" class="form-control" onkeyup="GetDetail(this.value)" placeholder="beispiel@help-desk.de" name="email">
       </div>
     </div>
   </div>
@@ -31,19 +34,19 @@
   <div class="row" id="second">
     <div class="col-sm-3">
       <h5>Vorname</h5>
-      <input type="text" class="form-control" placeholder="Hans" name="vorname">
+      <input type="text" id="vorname" class="form-control" placeholder="Hans" name="vorname">
     </div>
     <div class="col-sm-3">
       <h5>Nachname</h5>
-      <input type="text" class="form-control" placeholder="Wurst" name="nachname">
+      <input type="text" id="nachname" class="form-control" placeholder="Wurst" name="nachname">
     </div>
     <div class="col-sm-3">
       <h5>Telefonnummer</h5>
-      <input type="text" class="form-control" placeholder="123456" name="telefonnr">
+      <input type="text" id="telnr" class="form-control" placeholder="123456" name="telefonnr">
     </div>
     <div class="col-sm-3">
       <h5>Büro</h5>
-      <input type="text" class="form-control" placeholder="B007" name="buero">
+      <input type="text" id="büro" class="form-control" placeholder="B007" name="buero">
     </div>
   </div>
 </div>
@@ -124,7 +127,7 @@
     </div>
   </div>
 </div>
-
+<script>
 
 </body>
 </html>
