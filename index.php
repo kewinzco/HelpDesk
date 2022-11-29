@@ -92,12 +92,12 @@
     <div class="col-sm-8">
       <h5>Problembeschreibung und bisherige Lösungsansätze</h5>
       <div class="input-group">
-        <textarea class="form-control" aria-label="With textarea">test</textarea>
+        <textarea class="form-control" aria-label="With textarea"></textarea>
       </div>
     </div>
     <div class="col-sm-4">
       <h5>Screenshot-Upload</h5>
-
+        <input type="file" name="" value="" accept="image/*">
     </div>
   </div>
 
