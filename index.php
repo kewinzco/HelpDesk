@@ -16,18 +16,19 @@
 
 <div class="container mt-5">
 
-  <div class="row">
+ <!-- zuerst sichtbar -->
+  <div class="row" id="first">
     <div class="col-sm-6">
+      <h4>1. Persönliche Daten</h4>
       <h5>E-Mail</h5>
       <div class="input-group sm-4">
           <span class="input-group-text">@</span>
           <input type="text" class="form-control" placeholder="beispiel@help-desk.de" name="email">
       </div>
     </div>
-  <br><br>
   </div>
-
-  <div class="row">
+  <!-- als zweites sichtbar -->
+  <div class="row" id="second">
     <div class="col-sm-3">
       <h5>Vorname</h5>
       <input type="text" class="form-control" placeholder="Hans" name="vorname">
@@ -45,14 +46,24 @@
       <input type="text" class="form-control" placeholder="B007" name="buero">
     </div>
   </div>
+</div>
 
-  <div class="row">
+
+  <div  class="container mt-5" >
+
+    <!-- auch als zweites sichtbar-->
+  <div class="row" id="third">
     <div class="col-sm-3">
+      <h4>2. Angaben zum Gerät</h4>
       <h5>PC-Nummer</h5>
       <input type="text" class="form-control" placeholder="1234" name="pcnr">
     </div>
   </div>
 
+</div>
+
+  <!-- als drittes sichtbar -->
+  <div  class="container mt-5" id="fourth">
   <div class="row">
     <div class="col-sm-4">
       <h5>Wo tritt das Problem auf?</h5>
@@ -86,10 +97,9 @@
     </div>
   </div>
 
-
-
   <div class="row">
     <div class="col-sm-8">
+      <h4>3. Problembeschreibung</h4>
       <h5>Problembeschreibung und bisherige Lösungsansätze</h5>
       <div class="input-group">
         <textarea class="form-control" aria-label="With textarea"></textarea>
@@ -113,8 +123,8 @@
       <button type="button" name="absenden">Absenden</button>
     </div>
   </div>
-
 </div>
+
 
 </body>
 </html>
