@@ -26,7 +26,7 @@
       <h5>E-Mail</h5>
       <div class="input-group sm-4">
           <span class="input-group-text">@</span>
-          <input type="text" class="form-control" onkeyup="GetDetail(this.value)" placeholder="beispiel@help-desk.de" name="email">
+          <input type="text" id="email" class="form-control" onkeyup="GetDetail(this.value)" placeholder="beispiel@help-desk.de" name="email">
       </div>
     </div>
   </div>
@@ -133,6 +133,7 @@
         // release the key and calls the function
         // assigned to this event
         function GetDetail(str) {
+          console.log(str);
             if (str.length == 0) {
                 //document.getElementById("").value = "";
                 //document.getElementById("last_name").value = "";
@@ -150,6 +151,7 @@
 
                         // Typical action to be performed
                         // when the document is ready
+                          console.log(this.responseText);
                         var myObj = JSON.parse(this.responseText);
 
                         // Returns the response data as a
@@ -169,7 +171,7 @@
                 };
 
                 // xhttp.open("GET", "filename", true);
-                xmlhttp.open("GET", "include/einfuegen.php", true);
+                xmlhttp.open("GET", "include/einfuegen.php?email=" + str, true);
 
                 // Sends the request to the server
 

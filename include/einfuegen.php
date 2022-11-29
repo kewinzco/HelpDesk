@@ -1,14 +1,14 @@
 <?php
 // Get the user id
-$user_id = $_REQUEST['user_id'];
-include('include/config.php'); //Verbindung DB
+$email = $_REQUEST['email'];
+include('config.php'); //Verbindung DB
 // Database connection
 
-if ($user_id !== "") {
+if ($email !== "") {
 
     // Get corresponding first name and
     // last name for that user id
-    $query = mysqli_query($con, "SELECT vorname, nachname, telefonnummer, büro FROM mitarbe WHERE e-mailadresse='$user_id'");
+    $query = mysqli_query($conn, "SELECT vorname, nachname, telefonnummer, büro FROM mitarbeiter WHERE emailadresse='$email'");
 
     $row = mysqli_fetch_array($query);
 
