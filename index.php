@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -21,7 +23,7 @@
       <h5>E-Mail</h5>
       <div class="input-group sm-4">
           <span class="input-group-text">@</span>
-          <input type="text" class="form-control" placeholder="beispiel@help-desk.de" name="email">
+          <input type="text" class="form-control" onkeyup="GetDetail(this.value)" placeholder="beispiel@help-desk.de" name="email">
       </div>
     </div>
   <br><br>
@@ -30,19 +32,19 @@
   <div class="row">
     <div class="col-sm-3">
       <h5>Vorname</h5>
-      <input type="text" class="form-control" placeholder="Hans" name="vorname">
+      <input type="text" id="vorname" class="form-control" placeholder="Hans" name="vorname">
     </div>
     <div class="col-sm-3">
       <h5>Nachname</h5>
-      <input type="text" class="form-control" placeholder="Wurst" name="nachname">
+      <input type="text" id="nachname" class="form-control" placeholder="Wurst" name="nachname">
     </div>
     <div class="col-sm-3">
       <h5>Telefonnummer</h5>
-      <input type="text" class="form-control" placeholder="123456" name="telefonnr">
+      <input type="text" id="telnr" class="form-control" placeholder="123456" name="telefonnr">
     </div>
     <div class="col-sm-3">
       <h5>Büro</h5>
-      <input type="text" class="form-control" placeholder="B007" name="buero">
+      <input type="text" id="büro" class="form-control" placeholder="B007" name="buero">
     </div>
   </div>
 
@@ -115,6 +117,54 @@
   </div>
 
 </div>
+<script>
 
+        // onkeyup event will occur when the user
+        // release the key and calls the function
+        // assigned to this event
+        function GetDetail(str) {
+            if (str.length == 0) {
+                //document.getElementById("").value = "";
+                //document.getElementById("last_name").value = "";
+                return;
+            }
+            else {
+
+                // Creates a new XMLHttpRequest object
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+
+                    // Defines a function to be called when
+                    // the readyState property changes
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        // Typical action to be performed
+                        // when the document is ready
+                        var myObj = JSON.parse(this.responseText);
+
+                        // Returns the response data as a
+                        // string and store this array in
+                        // a variable assign the value
+                        // received to first name input field
+
+                        document.getElementById("vorname").value = myObj[0];
+
+                        // Assign the value received to
+                        // last name input field
+                        document.getElementById("nachname").value = myObj[1];
+                       document.getElementById("telnr").value = myObj[2];
+                         document.getElementById("büro").value = myObj[3];
+
+                    }
+                };
+
+                // xhttp.open("GET", "filename", true);
+                xmlhttp.open("GET", "include/einfuegen.php", true);
+
+                // Sends the request to the server
+                xmlhttp.send();
+            }
+        }
+    </script>
 </body>
 </html>
