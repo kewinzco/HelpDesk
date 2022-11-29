@@ -15,17 +15,17 @@
 </div>
 
 <div class="container mt-5">
-<h5>E-Mail</h5>
-<div class="row">
-  <div class="col-sm-6">
-    <div class="input-group sm-4">
-        <span class="input-group-text">@</span>
-        <input type="text" class="form-control" placeholder="beispiel@help-desk.de" name="email">
-    </div>
-  </div>
-<br><br>
 
-</div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h5>E-Mail</h5>
+      <div class="input-group sm-4">
+          <span class="input-group-text">@</span>
+          <input type="text" class="form-control" placeholder="beispiel@help-desk.de" name="email">
+      </div>
+    </div>
+  <br><br>
+  </div>
 
   <div class="row">
     <div class="col-sm-3">
@@ -51,6 +51,51 @@
       <h5>PC-Nummer</h5>
       <input type="text" class="form-control" placeholder="1234" name="pcnr">
     </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <h5>Wo tritt das Problem auf?</h5>
+      <div class="">
+        <fieldset>
+          <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Behörde <br>
+          <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2" >Homeoffice <br>
+          <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3" >Außendienst
+        </fieldset>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <h5>Art des Problems</h5>
+      <select class="form-select" >
+          <option>Netzwerk</option>
+          <option>Software</option>
+          <option>Hardware</option>
+          <option>IT-Sicherheit</option>
+          <option>Beratung zu IT-spezifischen Fragen</option>
+          <option>Sonstiges</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <h5>Welches Gerät</h5>
+      <select class="form-select" >
+          <option>Bildschirm</option>
+          <option>Maus/Tastatur</option>
+          <option>Drucker</option>
+          <option>Sonstiges</option>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <h5>Problembeschreibung und bisherige Lösungsansätze</h5>
+      <input type="text" class="form-control" placeholder="Ein Neustart hat das Problem nicht gelöst." name="loesungsversuche">
+    </div>
+    <div class="col-sm-4">
+      <h5>Screenshot-Upload</h5>
+
+    </div>
+  </div>
+dfsdfdsdsfdsfdsfdsfs
 </div>
 
 </body>
