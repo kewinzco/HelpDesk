@@ -1,5 +1,5 @@
 # HelpDesk
-Software Praktikum 
+Software Praktikum
 
 HelpDesk wurde mit XAMPP erstellt und getestet mit folgenden Konfigurationen:
 
@@ -17,6 +17,7 @@ Webserver:
   PHP-Version: 8.1.10
   phpMyAdmin Version 5.2.0
 
+-> bei neuer DB ist create Database Befehl dabei, evtl. benötigt man dann diesen nicht mehr, müsste mal jemand bei Gelegenheit testen
 Schritte um Projekt auf Maschine zum Laufen zu bringen:
 1. XAMPP installieren
 2. Repository downloaden
