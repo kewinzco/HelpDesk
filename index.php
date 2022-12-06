@@ -12,7 +12,8 @@
   </head>
   <body>
     <!--form start-->
-    <form action="https://formsubmit.co/matthias.feil@hof-university.de" method="POST">
+    <!-- <form action="https://formsubmit.co/matthias.feil@hof-university.de" action="include/db_speichern.php" method="POST"> -->
+      <form action="include/db_speichern.php" method="POST">
       <div class="container-fluid p-5 bg-primary text-white text-center">
         <h1>Ticket erstellen</h1>
       </div>
@@ -65,39 +66,39 @@
             <h5>Wo tritt das Problem auf?</h5>
             <div class="">
               <fieldset>
-                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Behörde <br>
-                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Homeoffice <br>
-                <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">Außendienst
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="Behörde" checked>Behörde <br>
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="Homeoffice">Homeoffice <br>
+                <input type="radio" class="form-check-input" id="radio3" name="optradio" value="Außendienst">Außendienst
               </fieldset>
             </div>
           </div>
           <div class="col-sm-4">
             <h5>Art des Problems</h5>
-            <select class="form-select">
+            <select class="form-select" name="schlagwort">
               <optgroup label="Hardware">
-                <option value="Hardware_Bildschirm">Bildschirm</option>
-                <option value="Hardware_PC">PC</option>
-                <option value="Hardware_Drucker">Drucker</option>
-                <option value="Hardware_Handy">Handy</option>
-                <option value="Hardware_Sonstiges">Sonstige</option>
+                <option name="schlagwort" value="Hardware_Bildschirm">Bildschirm</option>
+                <option name="schlagwort" value="Hardware_PC">PC</option>
+                <option name="schlagwort" value="Hardware_Drucker">Drucker</option>
+                <option name="schlagwort" value="Hardware_Handy">Handy</option>
+                <option name="schlagwort" value="Hardware_Sonstiges">Sonstige</option>
               </optgroup>
               <optgroup label="Netzwerk">
-                <option value="Netzwerk">Netzwerk</option>
+                <option name="schlagwort" value="Netzwerk">Netzwerk</option>
               </optgroup>
               <optgroup label="Software">
-                <option value="Software_Office">Office</option>
-                <option value="Software_Adobe">Adobe</option>
-                <option value="Software_Sonstiges">Sonstiges</option>
+                <option name="schlagwort" value="Software_Office">Office</option>
+                <option name="schlagwort" value="Software_Adobe">Adobe</option>
+                <option name="schlagwort" value="Software_Sonstiges">Sonstiges</option>
               </optgroup>
               <optgroup label="IT-Sicherheit">
-                <option value="IT-Sicherheit_SpamMail">Spam-Mail</option>
-                <option value="IT-Sicherheit_Sonstiges">Sonstiges</option>
+                <option name="schlagwort" value="IT-Sicherheit_SpamMail">Spam-Mail</option>
+                <option name="schlagwort" value="IT-Sicherheit_Sonstiges">Sonstiges</option>
               </optgroup>
               <optgroup label="Beratung">
-                <option value="Beratung">Beratung zu IT-spezifischen Fragen</option>
+                <option name="schlagwort" value="Beratung">Beratung zu IT-spezifischen Fragen</option>
               </optgroup>
               <optgroup label="Weitere Anliegen">
-                <option value="Sonstiges" selected>Sonstiges</option>
+                <option name="schlagwort" value="Sonstiges">Sonstiges</option>
               </optgroup>
             </select>
           </div>
@@ -106,8 +107,8 @@
           <div class="col-sm-8">
             <h4>3. Problembeschreibung</h4>
             <h5>Problembeschreibung und bisherige Lösungsansätze</h5>
-            <div class="input-group">
-              <textarea class="form-control" aria-label="With textarea"></textarea>
+            <div class="input-group" name="freitext">
+              <textarea class="form-control" aria-label="With textarea" name="freitext">Bitte hier das Problem näher beschreiben</textarea>
             </div>
           </div>
         <!--  <div class="col-sm-4">
