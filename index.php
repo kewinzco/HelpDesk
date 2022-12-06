@@ -74,21 +74,31 @@
           <div class="col-sm-4">
             <h5>Art des Problems</h5>
             <select class="form-select">
-              <option>Netzwerk</option>
-              <option>Software</option>
-              <option>Hardware</option>
-              <option>IT-Sicherheit</option>
-              <option>Beratung zu IT-spezifischen Fragen</option>
-              <option>Sonstiges</option>
-            </select>
-          </div>
-          <div class="col-sm-4">
-            <h5>Welches Gerät</h5>
-            <select class="form-select">
-              <option>Bildschirm</option>
-              <option>Maus/Tastatur</option>
-              <option>Drucker</option>
-              <option>Sonstiges</option>
+              <optgroup label="Hardware">
+                <option value="Hardware_Bildschirm">Bildschirm</option>
+                <option value="Hardware_PC">PC</option>
+                <option value="Hardware_Drucker">Drucker</option>
+                <option value="Hardware_Handy">Handy</option>
+                <option value="Hardware_Sonstiges">Sonstige</option>
+              </optgroup>
+              <optgroup label="Netzwerk">
+                <option value="Netzwerk">Netzwerk</option>
+              </optgroup>
+              <optgroup label="Software">
+                <option value="Software_Office">Office</option>
+                <option value="Software_Adobe">Adobe</option>
+                <option value="Software_Sonstiges">Sonstiges</option>
+              </optgroup>
+              <optgroup label="IT-Sicherheit">
+                <option value="IT-Sicherheit_SpamMail">Spam-Mail</option>
+                <option value="IT-Sicherheit_Sonstiges">Sonstiges</option>
+              </optgroup>
+              <optgroup label="Beratung">
+                <option value="Beratung">Beratung zu IT-spezifischen Fragen</option>
+              </optgroup>
+              <optgroup label="Weitere Anliegen">
+                <option value="Sonstiges" selected>Sonstiges</option>
+              </optgroup>
             </select>
           </div>
         </div>
@@ -100,10 +110,10 @@
               <textarea class="form-control" aria-label="With textarea"></textarea>
             </div>
           </div>
-          <div class="col-sm-4">
+        <!--  <div class="col-sm-4">
             <h5>Screenshot-Upload</h5>
             <input type="file" name="" value="" accept="image/*">
-          </div>
+          </div> -->
         </div>
         <div class="row">
           <fieldset>
