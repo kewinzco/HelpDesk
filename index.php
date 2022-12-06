@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--<?php
+if (isset($_POST['email']) {
+  header("https://formsubmit.co/" . $_POST['email']);
+}
+
+ ?>
+-->
+
 <html lang="de">
   <head>
     <title>Help Desk</title>
@@ -12,8 +20,8 @@
   </head>
   <body>
     <!--form start-->
-    <!-- <form action="https://formsubmit.co/matthias.feil@hof-university.de" action="include/db_speichern.php" method="POST"> -->
-      <form action="include/db_speichern.php" method="POST">
+    <form  action="include/db_speichern.php" method="POST">
+    <!--<form action="mail_senden()" action="include/db_speichern.php" method="POST">-->
       <div class="container-fluid p-5 bg-primary text-white text-center">
         <h1>Ticket erstellen</h1>
       </div>
@@ -166,6 +174,11 @@
           xmlhttp.open("GET", "include/einfuegen.php?email=" + str, true);
           // Sends the request to the server
           xmlhttp.send();
+        }
+
+        function mail_senden()
+        {
+          console.log("klappt");
         }
       }
     </script>

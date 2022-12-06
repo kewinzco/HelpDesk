@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 // Get the user id
 
@@ -12,5 +13,11 @@ include('config.php');
 
   $einfuegen -> close();
   $conn -> close();
+?>
 
-//?>
+<html>
+  <body>
+  <form action="https://formsubmit.co/kevin.klose@hof-university.de" method="POST">
+    </form>
+  </body>
+  </html>
