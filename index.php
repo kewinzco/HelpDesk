@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!--<?php
-if (isset($_POST['email']) {
+<?php
+/* if (isset($_POST['email']) {
   header("https://formsubmit.co/" . $_POST['email']);
 }
-
+*/
  ?>
--->
 
 <html lang="de">
   <head>
@@ -17,6 +16,7 @@ if (isset($_POST['email']) {
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://api.jquery.com/jQuery.ajax"></script>
   </head>
   <body>
     <!--form start-->
@@ -131,7 +131,7 @@ if (isset($_POST['email']) {
         </div>
         <div class="row">
           <div class="col-sm-4">
-            <button type="submit" name="absenden">Absenden</button>
+            <button type="submit" name="absenden" onclick="mail_senden()">Absenden</button>
           </div>
         </div>
       </div>
@@ -176,11 +176,27 @@ if (isset($_POST['email']) {
           xmlhttp.send();
         }
 
-        function mail_senden()
+      /*  function mail_senden()
         {
           console.log("klappt");
-        }
+        }*/
       }
+      function mail_senden()
+      {
+      $.ajax({
+        method: 'POST',
+      url: 'https://formsubmit.co/ajax/reginamarga.richter@hof-university.de',
+      dataType: 'json',
+      accepts: 'application/json',
+      data: {
+          name: "FormSubmit",
+          message: "I'm from Devro LABS"
+        },
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      });
+    }
+
     </script>
   </body>
 </html>
