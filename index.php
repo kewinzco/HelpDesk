@@ -132,6 +132,7 @@
         <div class="row">
           <div class="col-sm-4">
             <button type="submit" name="absenden" onclick="mail_senden()">Absenden</button>
+            <button name="testen" onclick="testeUnit()">Unit Test</button>
           </div>
         </div>
       </div>
@@ -195,6 +196,43 @@
         success: (data) => console.log(data),
         error: (err) => console.log(err)
       });
+    }
+
+    //Unit Tests
+    function testeUnit()
+    {
+      $.ajax({
+        method: 'POST',
+        url: 'include/db_speichern.php',
+        dataType: 'json',
+        //accepts?
+        data: {
+          //sssss?
+          email: "test1@hof-university.de",
+          pcnr: "001",
+          optradio: "Behörde",
+          schlagwort: "Hardware_Bildschirm"
+          freitext: "Hello World 1"
+        }
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      })
+      $.ajax({
+        method: 'POST',
+        url: 'include/db_speichern.php',
+        dataType: 'json',
+        //accepts?
+        data: {
+          //sssss?
+          email: "test2@hof-university.de",
+          pcnr: "002",
+          optradio: "Homeoffice",
+          schlagwort: "Netzwerk"
+          freitext: "Hello World 2"
+        }
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      })
     }
 
     </script>
