@@ -52,7 +52,7 @@
           </div>
           <div class="col-sm-3">
             <h5>Büro</h5>
-            <input type="text" id="büro" class="form-control" placeholder="B007" name="buero">
+            <input type="text" id="buero" class="form-control" placeholder="B007" name="buero">
           </div>
         </div>
       </div>
@@ -114,8 +114,8 @@
           <div class="col-sm-8">
             <h4>3. Problembeschreibung</h4>
             <h5>Problembeschreibung und bisherige Lösungsansätze</h5>
-            <div class="input-group" name="freitext" id="freitext">
-              <textarea class="form-control" aria-label="With textarea" name="freitext">Bitte hier das Problem näher beschreiben</textarea>
+            <div class="input-group" name="freitext" id="freitext_in">
+              <textarea class="form-control" aria-label="With textarea" name="freitext" id="freitext">Bitte hier das Problem näher beschreiben</textarea>
             </div>
           </div>
         <!--  <div class="col-sm-4">
@@ -167,7 +167,7 @@
               // last name input field
               document.getElementById("nachname").value = myObj[1];
               document.getElementById("telnr").value = myObj[2];
-              document.getElementById("büro").value = myObj[3];
+              document.getElementById("buero").value = myObj[3];
             }
           };
           // xhttp.open("GET", "filename", true);
@@ -183,35 +183,36 @@
       }
       function mail_senden()
       {
-      var email = document.getElementById("email");
-      var vorname = document.getElementById("vorname");
-      var nachname = document.getElementById("nachname");
-      var tel = document.getElementById("telnr");
-      var buero = document.getElementById("buero");
-      var pcnr = document.getElementById("pcnr");
-      var ort = document.getElementById("ort");
-      var art = document.getElementById("problemart");
-      var text = document.getElementById("freitext");
+      var email = document.getElementById("email").value;
+      var vorname = document.getElementById("vorname").value;
+      var nachname = document.getElementById("nachname").value;
+      var tel = document.getElementById("telnr").value;
+      var buero = document.getElementById("buero").value;
+      var pcnr = document.getElementById("pcnr").value;
+      var ort = document.getElementById("ort").value;
+      var art = document.getElementById("problemart").value;
+      var text = document.getElementById("freitext").value;
       $.ajax({
         method: 'POST',
         url: 'https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053',
         dataType: 'json',
         accepts: 'application/json',
         data: {
-        email: email,
-        vorname: vorname,
-        nachname: nachname,
-        telefonnummer: tel,
-        buero: buero,
-        pcNummer: pcnr,
-        ort: ort,
-        schlagwort: problemart,
-        freitext: text,
+        Email: email,
+        Vorname: vorname,
+        Nachname: nachname,
+        Telefonnummer: tel,
+        Buero: buero,
+        PcNummer: pcnr,
+        Ort: ort,
+        Schlagwort: art,
+        Freitext: text,
         },
         success: (data) => console.log(data),
         error: (err) => console.log(err)
       });
     }
+
 
     //Unit Tests
   /*  function testeUnit()
