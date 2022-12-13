@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+/* if (isset($_POST['email']) {
+  header("https://formsubmit.co/" . $_POST['email']);
+}
+*/
+ ?>
+
 <html lang="de">
   <head>
     <title>Help Desk</title>
@@ -9,6 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://api.jquery.com/jQuery.ajax"></script>
   </head>
   <body>
     <!--form start-->
@@ -65,39 +73,39 @@
             <h5>Wo tritt das Problem auf?</h5>
             <div class="">
               <fieldset>
-                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Behörde <br>
-                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Homeoffice <br>
-                <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">Außendienst
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="Behörde" checked>Behörde <br>
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="Homeoffice">Homeoffice <br>
+                <input type="radio" class="form-check-input" id="radio3" name="optradio" value="Außendienst">Außendienst
               </fieldset>
             </div>
           </div>
           <div class="col-sm-4">
             <h5>Art des Problems</h5>
-            <select class="form-select">
+            <select class="form-select" name="schlagwort">
               <optgroup label="Hardware">
-                <option value="Hardware_Bildschirm">Bildschirm</option>
-                <option value="Hardware_PC">PC</option>
-                <option value="Hardware_Drucker">Drucker</option>
-                <option value="Hardware_Handy">Handy</option>
-                <option value="Hardware_Sonstiges">Sonstige</option>
+                <option name="schlagwort" value="Hardware_Bildschirm">Bildschirm</option>
+                <option name="schlagwort" value="Hardware_PC">PC</option>
+                <option name="schlagwort" value="Hardware_Drucker">Drucker</option>
+                <option name="schlagwort" value="Hardware_Handy">Handy</option>
+                <option name="schlagwort" value="Hardware_Sonstiges">Sonstige</option>
               </optgroup>
               <optgroup label="Netzwerk">
-                <option value="Netzwerk">Netzwerk</option>
+                <option name="schlagwort" value="Netzwerk">Netzwerk</option>
               </optgroup>
               <optgroup label="Software">
-                <option value="Software_Office">Office</option>
-                <option value="Software_Adobe">Adobe</option>
-                <option value="Software_Sonstiges">Sonstiges</option>
+                <option name="schlagwort" value="Software_Office">Office</option>
+                <option name="schlagwort" value="Software_Adobe">Adobe</option>
+                <option name="schlagwort" value="Software_Sonstiges">Sonstiges</option>
               </optgroup>
               <optgroup label="IT-Sicherheit">
-                <option value="IT-Sicherheit_SpamMail">Spam-Mail</option>
-                <option value="IT-Sicherheit_Sonstiges">Sonstiges</option>
+                <option name="schlagwort" value="IT-Sicherheit_SpamMail">Spam-Mail</option>
+                <option name="schlagwort" value="IT-Sicherheit_Sonstiges">Sonstiges</option>
               </optgroup>
               <optgroup label="Beratung">
-                <option value="Beratung">Beratung zu IT-spezifischen Fragen</option>
+                <option name="schlagwort" value="Beratung">Beratung zu IT-spezifischen Fragen</option>
               </optgroup>
               <optgroup label="Weitere Anliegen">
-                <option value="Sonstiges" selected>Sonstiges</option>
+                <option name="schlagwort" value="Sonstiges">Sonstiges</option>
               </optgroup>
             </select>
           </div>
@@ -106,8 +114,8 @@
           <div class="col-sm-8">
             <h4>3. Problembeschreibung</h4>
             <h5>Problembeschreibung und bisherige Lösungsansätze</h5>
-            <div class="input-group">
-              <textarea class="form-control" aria-label="With textarea"></textarea>
+            <div class="input-group" name="freitext">
+              <textarea class="form-control" aria-label="With textarea" name="freitext">Bitte hier das Problem näher beschreiben</textarea>
             </div>
           </div>
         <!--  <div class="col-sm-4">
@@ -122,7 +130,8 @@
         </div>
         <div class="row">
           <div class="col-sm-4">
-            <button type="submit" name="absenden">Absenden</button>
+            <button type="submit" name="absenden" onclick="mail_senden()">Absenden</button>
+            <button name="testen" onclick="testeUnit()">Unit Test</button>
           </div>
         </div>
       </div>
@@ -166,7 +175,65 @@
           // Sends the request to the server
           xmlhttp.send();
         }
+
+      /*  function mail_senden()
+        {
+          console.log("klappt");
+        }*/
       }
+      function mail_senden()
+      {
+      $.ajax({
+        method: 'POST',
+      url: 'https://formsubmit.co/ajax/reginamarga.richter@hof-university.de',
+      dataType: 'json',
+      accepts: 'application/json',
+      data: {
+          name: "FormSubmit",
+          message: "I'm from Devro LABS"
+        },
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      });
+    }
+
+    //Unit Tests
+    function testeUnit()
+    {
+      $.ajax({
+        method: 'POST',
+        url: 'include/db_speichern.php',
+        dataType: 'json',
+        //accepts?
+        data: {
+          //sssss?
+          email: "test1@hof-university.de",
+          pcnr: "001",
+          optradio: "Behörde",
+          schlagwort: "Hardware_Bildschirm"
+          freitext: "Hello World 1"
+        }
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      })
+      $.ajax({
+        method: 'POST',
+        url: 'include/db_speichern.php',
+        dataType: 'json',
+        //accepts?
+        data: {
+          //sssss?
+          email: "test2@hof-university.de",
+          pcnr: "002",
+          optradio: "Homeoffice",
+          schlagwort: "Netzwerk"
+          freitext: "Hello World 2"
+        }
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      })
+    }
+
     </script>
   </body>
 </html>
