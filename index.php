@@ -20,7 +20,7 @@
   </head>
   <body>
     <!--form start-->
-    <form action="https://formsubmit.co/fe41e89be6050a2dced7241e2df91ff4" method="POST">
+    <form action="include/db_speichern.php" method="POST">
       <div class="container-fluid p-5 bg-primary text-white text-center">
         <h1>Ticket erstellen</h1>
       </div>
@@ -62,7 +62,7 @@
           <div class="col-sm-3">
             <h4>2. Angaben zum Gerät</h4>
             <h5>PC-Nummer</h5>
-            <input type="text" class="form-control" placeholder="1234" name="pcnr">
+            <input type="text" class="form-control" placeholder="1234" name="pcnr" id="pcnr">
           </div>
         </div>
       </div>
@@ -72,16 +72,16 @@
           <div class="col-sm-4">
             <h5>Wo tritt das Problem auf?</h5>
             <div class="">
-              <fieldset>
-                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="Behörde" checked>Behörde <br>
-                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="Homeoffice">Homeoffice <br>
-                <input type="radio" class="form-check-input" id="radio3" name="optradio" value="Außendienst">Außendienst
-              </fieldset>
+              <select class="form-select" name="ort" id="ort">
+                <option name="ort" value="Behörde">Behörde</option>
+                <option name="ort" value="Homeoffice">Homeoffice</option>
+                <option name="ort" value="Außendienst">Außendienst</option>
+            </select>
             </div>
           </div>
           <div class="col-sm-4">
             <h5>Art des Problems</h5>
-            <select class="form-select" name="schlagwort">
+            <select class="form-select" name="schlagwort" id="problemart">
               <optgroup label="Hardware">
                 <option name="schlagwort" value="Hardware_Bildschirm">Bildschirm</option>
                 <option name="schlagwort" value="Hardware_PC">PC</option>
@@ -114,7 +114,7 @@
           <div class="col-sm-8">
             <h4>3. Problembeschreibung</h4>
             <h5>Problembeschreibung und bisherige Lösungsansätze</h5>
-            <div class="input-group" name="freitext">
+            <div class="input-group" name="freitext" id="freitext">
               <textarea class="form-control" aria-label="With textarea" name="freitext">Bitte hier das Problem näher beschreiben</textarea>
             </div>
           </div>
@@ -131,7 +131,7 @@
         <div class="row">
           <div class="col-sm-4">
             <button type="submit" name="absenden" onclick="mail_senden()">Absenden</button>
-            <button name="testen" onclick="testeUnit()">Unit Test</button>
+        <!--    <button name="testen" onclick="testeUnit()">Unit Test</button>-->
           </div>
         </div>
       </div>
@@ -183,14 +183,30 @@
       }
       function mail_senden()
       {
+      var email = document.getElementById("email");
+      var vorname = document.getElementById("vorname");
+      var nachname = document.getElementById("nachname");
+      var tel = document.getElementById("telnr");
+      var buero = document.getElementById("buero");
+      var pcnr = document.getElementById("pcnr");
+      var ort = document.getElementById("ort");
+      var art = document.getElementById("problemart");
+      var text = document.getElementById("freitext");
       $.ajax({
         method: 'POST',
-      url: 'https://formsubmit.co/ajax/reginamarga.richter@hof-university.de',
-      dataType: 'json',
-      accepts: 'application/json',
-      data: {
-          name: "FormSubmit",
-          message: "I'm from Devro LABS"
+        url: 'https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053',
+        dataType: 'json',
+        accepts: 'application/json',
+        data: {
+        email: email,
+        vorname: vorname,
+        nachname: nachname,
+        telefonnummer: tel,
+        buero: buero,
+        pcNummer: pcnr,
+        ort: ort,
+        schlagwort: problemart,
+        freitext: text,
         },
         success: (data) => console.log(data),
         error: (err) => console.log(err)
@@ -198,7 +214,7 @@
     }
 
     //Unit Tests
-    function testeUnit()
+  /*  function testeUnit()
     {
       $.ajax({
         method: 'POST',
@@ -232,7 +248,7 @@
         success: (data) => console.log(data),
         error: (err) => console.log(err)
       })
-    }
+    }*/
 
     </script>
   </body>
