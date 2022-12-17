@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<?php
+<!DOCTYPE html> <?php
 /* if (isset($_POST['email']) {
   header("https://formsubmit.co/" . $_POST['email']);
 }
 */
- ?>
-
-<html lang="de">
+ ?> <html lang="de">
   <head>
     <title>Help Desk</title>
     <meta charset="utf-8">
@@ -76,12 +73,12 @@
                 <option name="ort" value="Behörde">Behörde</option>
                 <option name="ort" value="Homeoffice">Homeoffice</option>
                 <option name="ort" value="Außendienst">Außendienst</option>
-            </select>
+              </select>
             </div>
           </div>
           <div class="col-sm-4">
             <h5>Art des Problems</h5>
-            <select class="form-select" name="schlagwort" id="problemart">
+            <select class="form-select" name="schlagwort" id="problemart" onchange="zuständigkeitÄndern()">
               <optgroup label="Hardware">
                 <option name="schlagwort" value="Hardware_Bildschirm">Bildschirm</option>
                 <option name="schlagwort" value="Hardware_PC">PC</option>
@@ -118,10 +115,7 @@
               <textarea class="form-control" aria-label="With textarea" name="freitext" id="freitext">Bitte hier das Problem näher beschreiben</textarea>
             </div>
           </div>
-        <!--  <div class="col-sm-4">
-            <h5>Screenshot-Upload</h5>
-            <input type="file" name="" value="" accept="image/*">
-          </div> -->
+          <!--  <div class="col-sm-4"><h5>Screenshot-Upload</h5><input type="file" name="" value="" accept="image/*"></div> -->
         </div>
         <div class="row">
           <fieldset>
@@ -131,13 +125,61 @@
         <div class="row">
           <div class="col-sm-4">
             <button type="submit" name="absenden" onclick="mail_senden()">Absenden</button>
-        <!--    <button name="testen" onclick="testeUnit()">Unit Test</button>-->
           </div>
         </div>
       </div>
       <!--form end-->
     </form>
+    <button name="testen" onclick="testeUnit()">Unit Test</button>
     <script>
+      //Zuständigkeit Listener
+      var zuständigkeit = "https://formsubmit.co/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+
+      function zuständigkeitÄndern() {
+        switch (document.getElementById("ploblemart").value) {
+          case "Hardware_Bildschirm":
+            zuständigkeit = "https://formsubmit.co/c5ff11483f1253e075b5843960816053";
+            break;
+          case "Hardware_PC":
+            zuständigkeit = "https://formsubmit.co/c5ff11483f1253e075b5843960816053";
+            break;
+          case "Hardware_Drucker":
+            zuständigkeit = "https://formsubmit.co/16226ee088794398fdfc9911f7464bf1";
+            break;
+          case "Hardware_Handy":
+            zuständigkeit = "https://formsubmit.co/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+            break;
+          case "Hardware_Sonstiges":
+            zuständigkeit = "https://formsubmit.co/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+            break;
+          case "Netzwerk":
+            zuständigkeit = "https://formsubmit.co/16226ee088794398fdfc9911f7464bf1";
+            break;
+          case "Software_Office":
+            zuständigkeit = "https://formsubmit.co/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+            break;
+          case "Software_Adobe":
+            zuständigkeit = "https://formsubmit.co/c5ff11483f1253e075b5843960816053";
+            break;
+          case "Software_Sonstiges":
+            zuständigkeit = "https://formsubmit.co/16226ee088794398fdfc9911f7464bf1";
+            break;
+          case "Sicherheit_SpamMail":
+            zuständigkeit = "https://formsubmit.co/16226ee088794398fdfc9911f7464bf1";
+            break;
+          case "Sicherheit_Sonstiges":
+            zuständigkeit = "https://formsubmit.co/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+            break;
+          case "Beratung":
+            zuständigkeit = "https://formsubmit.co/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+            break;
+          case "Sonstiges":
+            zuständigkeit = "https://formsubmit.co/c5ff11483f1253e075b5843960816053";
+            break;
+          default:
+            break;
+        }
+      }
       // onkeyup event will occur when the user
       // release the key and calls the function
       // assigned to this event
@@ -175,14 +217,14 @@
           // Sends the request to the server
           xmlhttp.send();
         }
-
-      /*  function mail_senden()
-        {
-          console.log("klappt");
-        }*/
+        /*  function mail_senden()
+          {
+            console.log("klappt");
+          }*/
       }
-      function mail_senden()
-      {
+
+      function mail_senden() {
+        /*
       var email = document.getElementById("email").value;
       var vorname = document.getElementById("vorname").value;
       var nachname = document.getElementById("nachname").value;
@@ -192,65 +234,135 @@
       var ort = document.getElementById("ort").value;
       var art = document.getElementById("problemart").value;
       var text = document.getElementById("freitext").value;
-      $.ajax({
-        method: 'POST',
-        url: 'https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053',
-        dataType: 'json',
-        accepts: 'application/json',
-        data: {
-        Email: email,
-        Vorname: vorname,
-        Nachname: nachname,
-        Telefonnummer: tel,
-        Buero: buero,
-        PcNummer: pcnr,
-        Ort: ort,
-        Schlagwort: art,
-        Freitext: text,
-        },
-        success: (data) => console.log(data),
-        error: (err) => console.log(err)
-      });
-    }
-
-
-    //Unit Tests
-  /*  function testeUnit()
-    {
-      $.ajax({
-        method: 'POST',
-        url: 'include/db_speichern.php',
-        dataType: 'json',
-        //accepts?
-        data: {
-          //sssss?
-          email: "test1@hof-university.de",
-          pcnr: "001",
-          optradio: "Behörde",
-          schlagwort: "Hardware_Bildschirm"
-          freitext: "Hello World 1"
-        }
-        success: (data) => console.log(data),
-        error: (err) => console.log(err)
-      })
-      $.ajax({
-        method: 'POST',
-        url: 'include/db_speichern.php',
-        dataType: 'json',
-        //accepts?
-        data: {
-          //sssss?
-          email: "test2@hof-university.de",
-          pcnr: "002",
-          optradio: "Homeoffice",
-          schlagwort: "Netzwerk"
-          freitext: "Hello World 2"
-        }
-        success: (data) => console.log(data),
-        error: (err) => console.log(err)
-      })
-    }*/
-
+      */
+        $.ajax({
+          method: 'POST',
+          url: 'zuständigkeit',
+          dataType: 'json',
+          accepts: 'application/json',
+          data: {
+            Email: document.getElementById("email").value,
+            Vorname: document.getElementById("vorname").value,
+            Nachname: document.getElementById("nachname").value,
+            Telefonnummer: document.getElementById("telnr").value,
+            Buero: document.getElementById("buero").value,
+            PcNummer: document.getElementById("pcnr").value,
+            Ort: document.getElementById("ort").value,
+            Schlagwort: document.getElementById("problemart").value,
+            Freitext: document.getElementById("freitext").value,
+          },
+          success: (data) => console.log(data),
+          error: (err) => console.log(err)
+        });
+      }
+      //Unit Tests
+      function testeUnit() {
+        //Kevin
+        $.ajax({
+          method: 'POST',
+          url: 'include/db_speichern.php',
+          dataType: 'json',
+          accepts: 'application/json',
+          data: {
+            email: "kevin.klose@aiv.hfoed.de",
+            pcnr: "001",
+            ort: "Behörde",
+            schlagwort: "Hardware_Bildschirm"
+            freitext: "Hello World 1"
+          }
+          success: (data) => console.log(data),
+          error: (err) => console.log(err)
+        });
+        $.ajax({
+          method: 'POST',
+          url: 'zuständigkeit',
+          dataType: 'json',
+          accepts: 'application/json',
+          data: {
+            Email: "kevin.klose@aiv.hfoed.de",
+            Vorname: "Kevin2",
+            Nachname: "Klose2",
+            Telefonnummer: 1000,
+            Buero: "A1002",
+            PcNummer: "001",
+            Ort: "Behörde",
+            Schlagwort: "Hardware_Bilschirm",
+            Freitext: "Hello World 1",
+          },
+          success: (data) => console.log(data),
+          error: (err) => console.log(err)
+        });
+        //Matthias
+        $.ajax({
+          method: 'POST',
+          url: 'include/db_speichern.php',
+          dataType: 'json',
+          accepts: 'application/json',
+          data: {
+            email: "matthias.feil@aiv.hfoed.de",
+            pcnr: "001",
+            ort: "Homeoffice",
+            schlagwort: "Netzwerk"
+            freitext: "Hello World 2"
+          }
+          success: (data) => console.log(data),
+          error: (err) => console.log(err)
+        });
+        $.ajax({
+          method: 'POST',
+          url: 'zuständigkeit',
+          dataType: 'json',
+          accepts: 'application/json',
+          data: {
+            Email: "matthias.feil@aiv.hfoed.de",
+            Vorname: "Matthias2",
+            Nachname: "Feil2",
+            Telefonnummer: "2000",
+            Buero: "A1003",
+            PcNummer: "002",
+            Ort: "Homeoffice",
+            Schlagwort: "Netzwerk",
+            Freitext: "Hello World 2",
+          },
+          success: (data) => console.log(data),
+          error: (err) => console.log(err)
+        });
+        //Regina
+        $.ajax({
+          method: 'POST',
+          url: 'include/db_speichern.php',
+          dataType: 'json',
+          accepts: 'application/json',
+          data: {
+            email: "reginamarga.richter@aiv.hfoed.de",
+            pcnr: "003",
+            ort: "Behörde",
+            schlagwort: "Hardware_Bildschirm"
+            freitext: "Hello World 3"
+          }
+          success: (data) => console.log(data),
+          error: (err) => console.log(err)
+        });
+        $.ajax({
+          method: 'POST',
+          url: 'zuständigkeit',
+          dataType: 'json',
+          accepts: 'application/json',
+          data: {
+            Email: "reginamarga.richter@aiv.hfoed.de",
+            Vorname: "Regina2",
+            Nachname: "Richter2",
+            Telefonnummer: "3000",
+            Buero: "A1003",
+            PcNummer: "003",
+            Ort: "Behörde",
+            Schlagwort: "Hardware_Bildschirm",
+            Freitext: "Hello World 3",
+          },
+          success: (data) => console.log(data),
+          error: (err) => console.log(err)
+        });
+      }
     </script>
   </body>
 </html>
