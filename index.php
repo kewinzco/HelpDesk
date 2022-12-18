@@ -78,7 +78,7 @@
           </div>
           <div class="col-sm-4">
             <h5>Art des Problems</h5>
-            <select class="form-select" name="schlagwort" id="problemart" onchange="zuständigkeitÄndern()">
+            <select class="form-select" name="schlagwort" id="problemart" onchange="zustandigkeitAndern()">
               <optgroup label="Hardware">
                 <option name="schlagwort" value="Hardware_Bildschirm">Bildschirm</option>
                 <option name="schlagwort" value="Hardware_PC">PC</option>
@@ -132,49 +132,49 @@
     </form>
     <button name="testen" onclick="testeUnit()">Unit Test</button>
     <script>
-      //Zuständigkeit Listener
-      var zuständigkeit = "https://formsubmit.co/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+      //Zustandigkeit Listener
+      var zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
 
-      function zuständigkeitÄndern() {
+      function zustandigkeitAndern() {
         switch (document.getElementById("ploblemart").value) {
-          case "Hardware_Bildschirm":
-            zuständigkeit = "https://formsubmit.co/c5ff11483f1253e075b5843960816053";
+          case "Hardware_Bildschirm": 
+            zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
             break;
           case "Hardware_PC":
-            zuständigkeit = "https://formsubmit.co/c5ff11483f1253e075b5843960816053";
+            zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
             break;
           case "Hardware_Drucker":
-            zuständigkeit = "https://formsubmit.co/16226ee088794398fdfc9911f7464bf1";
+            zustandigkeit = "https://formsubmit.co/ajax/16226ee088794398fdfc9911f7464bf1";
             break;
           case "Hardware_Handy":
-            zuständigkeit = "https://formsubmit.co/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+            zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
             break;
           case "Hardware_Sonstiges":
-            zuständigkeit = "https://formsubmit.co/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+            zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
             break;
           case "Netzwerk":
-            zuständigkeit = "https://formsubmit.co/16226ee088794398fdfc9911f7464bf1";
+            zustandigkeit = "https://formsubmit.co/ajax/16226ee088794398fdfc9911f7464bf1";
             break;
           case "Software_Office":
-            zuständigkeit = "https://formsubmit.co/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+            zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
             break;
           case "Software_Adobe":
-            zuständigkeit = "https://formsubmit.co/c5ff11483f1253e075b5843960816053";
+            zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
             break;
           case "Software_Sonstiges":
-            zuständigkeit = "https://formsubmit.co/16226ee088794398fdfc9911f7464bf1";
+            zustandigkeit = "https://formsubmit.co/ajax/16226ee088794398fdfc9911f7464bf1";
             break;
           case "Sicherheit_SpamMail":
-            zuständigkeit = "https://formsubmit.co/16226ee088794398fdfc9911f7464bf1";
+            zustandigkeit = "https://formsubmit.co/ajax/16226ee088794398fdfc9911f7464bf1";
             break;
           case "Sicherheit_Sonstiges":
-            zuständigkeit = "https://formsubmit.co/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+            zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
             break;
           case "Beratung":
-            zuständigkeit = "https://formsubmit.co/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+            zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
             break;
           case "Sonstiges":
-            zuständigkeit = "https://formsubmit.co/c5ff11483f1253e075b5843960816053";
+            zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
             break;
           default:
             break;
@@ -237,7 +237,7 @@
       */
         $.ajax({
           method: 'POST',
-          url: 'zuständigkeit',
+          url: 'zustandigkeit',
           dataType: 'json',
           accepts: 'application/json',
           data: {
@@ -275,7 +275,7 @@
         });
         $.ajax({
           method: 'POST',
-          url: 'zuständigkeit',
+          url: 'zustandigkeit',
           dataType: 'json',
           accepts: 'application/json',
           data: {
@@ -310,7 +310,7 @@
         });
         $.ajax({
           method: 'POST',
-          url: 'zuständigkeit',
+          url: 'zustandigkeit',
           dataType: 'json',
           accepts: 'application/json',
           data: {
@@ -345,7 +345,7 @@
         });
         $.ajax({
           method: 'POST',
-          url: 'zuständigkeit',
+          url: 'zustandigkeit',
           dataType: 'json',
           accepts: 'application/json',
           data: {
