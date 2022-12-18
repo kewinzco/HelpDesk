@@ -17,7 +17,7 @@
   </head>
   <body>
     <!--form start-->
-    <form action="include/db_speichern.php" method="POST">
+    <form action="include/db_speichern.php" type="POST">
       <div class="container-fluid p-5 bg-primary text-white text-center">
         <h1>Ticket erstellen</h1>
       </div>
@@ -131,100 +131,100 @@
       <!--form end-->
     </form>
     <button name="testen" onclick="testeUnit()">Unit Test</button>
-    <script>
-      //Zustandigkeit Listener
-      var zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
-
-      function zustandigkeitAndern() {
-        switch (document.getElementById("ploblemart").value) {
-          case "Hardware_Bildschirm": 
-            zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
-            break;
-          case "Hardware_PC":
-            zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
-            break;
-          case "Hardware_Drucker":
-            zustandigkeit = "https://formsubmit.co/ajax/16226ee088794398fdfc9911f7464bf1";
-            break;
-          case "Hardware_Handy":
-            zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
-            break;
-          case "Hardware_Sonstiges":
-            zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
-            break;
-          case "Netzwerk":
-            zustandigkeit = "https://formsubmit.co/ajax/16226ee088794398fdfc9911f7464bf1";
-            break;
-          case "Software_Office":
-            zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
-            break;
-          case "Software_Adobe":
-            zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
-            break;
-          case "Software_Sonstiges":
-            zustandigkeit = "https://formsubmit.co/ajax/16226ee088794398fdfc9911f7464bf1";
-            break;
-          case "Sicherheit_SpamMail":
-            zustandigkeit = "https://formsubmit.co/ajax/16226ee088794398fdfc9911f7464bf1";
-            break;
-          case "Sicherheit_Sonstiges":
-            zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
-            break;
-          case "Beratung":
-            zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
-            break;
-          case "Sonstiges":
-            zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
-            break;
-          default:
-            break;
-        }
+  </body>
+  <script>
+    //Zustandigkeit Listener
+    var zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+    function zustandigkeitAndern() {
+      switch (document.getElementById("ploblemart").value) {
+        case "Hardware_Bildschirm":
+          zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
+          break;
+        case "Hardware_PC":
+          zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
+          break;
+        case "Hardware_Drucker":
+          zustandigkeit = "https://formsubmit.co/ajax/16226ee088794398fdfc9911f7464bf1";
+          break;
+        case "Hardware_Handy":
+          zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+          break;
+        case "Hardware_Sonstiges":
+          zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+          break;
+        case "Netzwerk":
+          zustandigkeit = "https://formsubmit.co/ajax/16226ee088794398fdfc9911f7464bf1";
+          break;
+        case "Software_Office":
+          zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+          break;
+        case "Software_Adobe":
+          zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
+          break;
+        case "Software_Sonstiges":
+          zustandigkeit = "https://formsubmit.co/ajax/16226ee088794398fdfc9911f7464bf1";
+          break;
+        case "Sicherheit_SpamMail":
+          zustandigkeit = "https://formsubmit.co/ajax/16226ee088794398fdfc9911f7464bf1";
+          break;
+        case "Sicherheit_Sonstiges":
+          zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+          break;
+        case "Beratung":
+          zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+          break;
+        case "Sonstiges":
+          zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
+          break;
+        default:
+          break;
       }
-      // onkeyup event will occur when the user
-      // release the key and calls the function
-      // assigned to this event
-      function GetDetail(str) {
-        console.log(str);
-        if (str.length == 0) {
-          //document.getElementById("").value = "";
-          //document.getElementById("last_name").value = "";
-          return;
-        } else {
-          // Creates a new XMLHttpRequest object
-          var xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function() {
-            // Defines a function to be called when
-            // the readyState property changes
-            if (this.readyState == 4 && this.status == 200) {
-              // Typical action to be performed
-              // when the document is ready
-              console.log(this.responseText);
-              var myObj = JSON.parse(this.responseText);
-              // Returns the response data as a
-              // string and store this array in
-              // a variable assign the value
-              // received to first name input field
-              document.getElementById("vorname").value = myObj[0];
-              // Assign the value received to
-              // last name input field
-              document.getElementById("nachname").value = myObj[1];
-              document.getElementById("telnr").value = myObj[2];
-              document.getElementById("buero").value = myObj[3];
-            }
-          };
-          // xhttp.open("GET", "filename", true);
-          xmlhttp.open("GET", "include/einfuegen.php?email=" + str, true);
-          // Sends the request to the server
-          xmlhttp.send();
-        }
-        /*  function mail_senden()
-          {
-            console.log("klappt");
-          }*/
+    }
+    // onkeyup event will occur when the user
+    // release the key and calls the function
+    // assigned to this event
+    function GetDetail(str) {
+      console.log(str);
+      if (str.length == 0) {
+        //document.getElementById("").value = "";
+        //document.getElementById("last_name").value = "";
+        return;
+      } else {
+        // Creates a new XMLHttpRequest object
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          // Defines a function to be called when
+          // the readyState property changes
+          if (this.readyState == 4 && this.status == 200) {
+            // Typical action to be performed
+            // when the document is ready
+            console.log(this.responseText);
+            var myObj = JSON.parse(this.responseText);
+            // Returns the response data as a
+            // string and store this array in
+            // a variable assign the value
+            // received to first name input field
+            document.getElementById("vorname").value = myObj[0];
+            // Assign the value received to
+            // last name input field
+            document.getElementById("nachname").value = myObj[1];
+            document.getElementById("telnr").value = myObj[2];
+            document.getElementById("buero").value = myObj[3];
+          }
+        };
+        // xhttp.open("GET", "filename", true);
+        xmlhttp.open("GET", "include/einfuegen.php?email=" + str, true);
+        // Sends the request to the server
+        xmlhttp.send();
       }
+      /*  function mail_senden()
+        {
+          console.log("klappt");
+        }*/
+    }
 
-      function mail_senden() {
-        /*
+    function mail_senden() {
+      /*
       var email = document.getElementById("email").value;
       var vorname = document.getElementById("vorname").value;
       var nachname = document.getElementById("nachname").value;
@@ -235,134 +235,133 @@
       var art = document.getElementById("problemart").value;
       var text = document.getElementById("freitext").value;
       */
-        $.ajax({
-          method: 'POST',
-          url: 'zustandigkeit',
-          dataType: 'json',
-          accepts: 'application/json',
-          data: {
-            Email: document.getElementById("email").value,
-            Vorname: document.getElementById("vorname").value,
-            Nachname: document.getElementById("nachname").value,
-            Telefonnummer: document.getElementById("telnr").value,
-            Buero: document.getElementById("buero").value,
-            PcNummer: document.getElementById("pcnr").value,
-            Ort: document.getElementById("ort").value,
-            Schlagwort: document.getElementById("problemart").value,
-            Freitext: document.getElementById("freitext").value,
-          },
-          success: (data) => console.log(data),
-          error: (err) => console.log(err)
-        });
-      }
-      //Unit Tests
-      function testeUnit() {
-        //Kevin
-        $.ajax({
-          method: 'POST',
-          url: 'include/db_speichern.php',
-          dataType: 'json',
-          accepts: 'application/json',
-          data: {
-            email: "kevin.klose@aiv.hfoed.de",
-            pcnr: "001",
-            ort: "Behörde",
-            schlagwort: "Hardware_Bildschirm"
-            freitext: "Hello World 1"
-          }
-          success: (data) => console.log(data),
-          error: (err) => console.log(err)
-        });
-        $.ajax({
-          method: 'POST',
-          url: 'zustandigkeit',
-          dataType: 'json',
-          accepts: 'application/json',
-          data: {
-            Email: "kevin.klose@aiv.hfoed.de",
-            Vorname: "Kevin2",
-            Nachname: "Klose2",
-            Telefonnummer: 1000,
-            Buero: "A1002",
-            PcNummer: "001",
-            Ort: "Behörde",
-            Schlagwort: "Hardware_Bilschirm",
-            Freitext: "Hello World 1",
-          },
-          success: (data) => console.log(data),
-          error: (err) => console.log(err)
-        });
-        //Matthias
-        $.ajax({
-          method: 'POST',
-          url: 'include/db_speichern.php',
-          dataType: 'json',
-          accepts: 'application/json',
-          data: {
-            email: "matthias.feil@aiv.hfoed.de",
-            pcnr: "001",
-            ort: "Homeoffice",
-            schlagwort: "Netzwerk"
-            freitext: "Hello World 2"
-          }
-          success: (data) => console.log(data),
-          error: (err) => console.log(err)
-        });
-        $.ajax({
-          method: 'POST',
-          url: 'zustandigkeit',
-          dataType: 'json',
-          accepts: 'application/json',
-          data: {
-            Email: "matthias.feil@aiv.hfoed.de",
-            Vorname: "Matthias2",
-            Nachname: "Feil2",
-            Telefonnummer: "2000",
-            Buero: "A1003",
-            PcNummer: "002",
-            Ort: "Homeoffice",
-            Schlagwort: "Netzwerk",
-            Freitext: "Hello World 2",
-          },
-          success: (data) => console.log(data),
-          error: (err) => console.log(err)
-        });
-        //Regina
-        $.ajax({
-          method: 'POST',
-          url: 'include/db_speichern.php',
-          dataType: 'json',
-          accepts: 'application/json',
-          data: {
-            email: "reginamarga.richter@aiv.hfoed.de",
-            pcnr: "003",
-            ort: "Behörde",
-            schlagwort: "Hardware_Bildschirm"
-            freitext: "Hello World 3"
-          }
-          success: (data) => console.log(data),
-          error: (err) => console.log(err)
-        });
-        $.ajax({
-          method: 'POST',
-          url: 'zustandigkeit',
-          dataType: 'json',
-          accepts: 'application/json',
-          data: {
-            Email: "reginamarga.richter@aiv.hfoed.de",
-            Vorname: "Regina2",
-            Nachname: "Richter2",
-            Telefonnummer: "3000",
-            Buero: "A1003",
-            PcNummer: "003",
-            Ort: "Behörde",
-            Schlagwort: "Hardware_Bildschirm",
-            Freitext: "Hello World 3",
-          },
-          success: (data) => console.log(data),
-          error: (err) => console.log(err)
-        });
-      }
-    </script>
-  </body>
+      $.ajax({
+        type: 'POST',
+        url: 'zustandigkeit',
+        dataType: 'json',
+        accepts: 'application/json',
+        data: {
+          Email: document.getElementById("email").value,
+          Vorname: document.getElementById("vorname").value,
+          Nachname: document.getElementById("nachname").value,
+          Telefonnummer: document.getElementById("telnr").value,
+          Buero: document.getElementById("buero").value,
+          PcNummer: document.getElementById("pcnr").value,
+          Ort: document.getElementById("ort").value,
+          Schlagwort: document.getElementById("problemart").value,
+          Freitext: document.getElementById("freitext").value,
+        },
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      });
+    }
+    //Unit Tests
+    function testeUnit() {
+      //Kevin
+      $.ajax({
+        type: 'POST',
+        url: 'include/db_speichern.php',
+        dataType: 'json',
+        accepts: 'application/json',
+        data: {
+          email: "kevin.klose@aiv.hfoed.de",
+          pcnr: "001",
+          ort: "Behörde",
+          schlagwort: "Hardware_Bildschirm"
+          freitext: "Hello World 1"
+        }
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      });
+      $.ajax({
+        type: 'POST',
+        url: 'zustandigkeit',
+        dataType: 'json',
+        accepts: 'application/json',
+        data: {
+          Email: "kevin.klose@aiv.hfoed.de",
+          Vorname: "Kevin2",
+          Nachname: "Klose2",
+          Telefonnummer: 1000,
+          Buero: "A1002",
+          PcNummer: "001",
+          Ort: "Behörde",
+          Schlagwort: "Hardware_Bilschirm",
+          Freitext: "Hello World 1",
+        },
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      });
+      //Matthias
+      $.ajax({
+        type: 'POST',
+        url: 'include/db_speichern.php',
+        dataType: 'json',
+        accepts: 'application/json',
+        data: {
+          email: "matthias.feil@aiv.hfoed.de",
+          pcnr: "001",
+          ort: "Homeoffice",
+          schlagwort: "Netzwerk"
+          freitext: "Hello World 2"
+        }
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      });
+      $.ajax({
+        type: 'POST',
+        url: 'zustandigkeit',
+        dataType: 'json',
+        accepts: 'application/json',
+        data: {
+          Email: "matthias.feil@aiv.hfoed.de",
+          Vorname: "Matthias2",
+          Nachname: "Feil2",
+          Telefonnummer: "2000",
+          Buero: "A1003",
+          PcNummer: "002",
+          Ort: "Homeoffice",
+          Schlagwort: "Netzwerk",
+          Freitext: "Hello World 2",
+        },
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      });
+      //Regina
+      $.ajax({
+        type: 'POST',
+        url: 'include/db_speichern.php',
+        dataType: 'json',
+        accepts: 'application/json',
+        data: {
+          email: "reginamarga.richter@aiv.hfoed.de",
+          pcnr: "003",
+          ort: "Behörde",
+          schlagwort: "Hardware_Bildschirm"
+          freitext: "Hello World 3"
+        }
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      });
+      $.ajax({
+        type: 'POST',
+        url: 'zustandigkeit',
+        dataType: 'json',
+        accepts: 'application/json',
+        data: {
+          Email: "reginamarga.richter@aiv.hfoed.de",
+          Vorname: "Regina2",
+          Nachname: "Richter2",
+          Telefonnummer: "3000",
+          Buero: "A1003",
+          PcNummer: "003",
+          Ort: "Behörde",
+          Schlagwort: "Hardware_Bildschirm",
+          Freitext: "Hello World 3",
+        },
+        success: (data) => console.log(data),
+        error: (err) => console.log(err)
+      });
+    }
+  </script>
 </html>
