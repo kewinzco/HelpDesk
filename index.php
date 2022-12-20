@@ -139,7 +139,7 @@
     var zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
     console.log(zustandigkeit);
     function zustandigkeitAndern() {
-      switch (document.getElementById("problemart").value) {
+    /*  switch (document.getElementById("problemart").value) {
         case "Hardware_Bildschirm":
         //  zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
         zustandigkeit = "https://formsubmit.co/ajax/klose.k@gmx.net";
@@ -182,8 +182,40 @@
           break;
         default:
           break;
-      }
+      }*/
       console.log(zustandigkeit);
+       //so sollte laden von Mails auch dynamisch aus DB gehen
+      console.log("Zuständigkeit davor: ");
+       console.log(zustandigkeit);
+     var problem =  document.getElementById("problemart").value;
+     console.log("Übergebenes Problem: ");
+      console.log(problem);
+
+        // Creates a new XMLHttpRequest object
+        var xhttp = new XMLHttpRequest();
+        console.log("1");
+        console.log(xhttp);
+        xhttp.onreadystatechange = function() {
+          // Defines a function to be called when
+          // the readyState property changes
+          console.log("infunc");
+         if (this.readyState == 4 && this.status == 200) {
+            // Typical action to be performed
+            // when the document is ready
+            console.log(this.responseText);
+            var myObj_p = JSON.parse(this.responseText);
+            zustandigkeit = myObj_p[0];
+            console.log("neue Zuständigkeit: ");
+            console.log(zustandigkeit);
+
+        }
+      };
+        // xhttp.open("GET", "filename", true);
+        xhttp.open("GET", "include/einfuegen_mail.php?problem=" + problem, true);
+        // Sends the request to the server
+        xhttp.send();
+
+      
     }
     // onkeyup event will occur when the user
     // release the key and calls the function
