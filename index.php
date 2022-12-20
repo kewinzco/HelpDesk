@@ -17,7 +17,7 @@
   </head>
   <body>
     <!--form start-->
-    <form action="include/db_speichern.php" type="POST">
+    <form action="include/db_speichern.php" method="POST">
       <div class="container-fluid p-5 bg-primary text-white text-center">
         <h1>Ticket erstellen</h1>
       </div>
@@ -124,7 +124,8 @@
         </div>
         <div class="row">
           <div class="col-sm-4">
-            <button type="submit" name="absenden" onclick="mail_senden()">Absenden</button>
+          <button type="submit" name="absenden" onclick="mail_senden()">Absenden</button>
+          <!--  <button type="submit" name="absenden" >Absenden</button> -->
           </div>
         </div>
       </div>
@@ -134,11 +135,13 @@
   </body>
   <script>
     //Zustandigkeit Listener
-    var zustandigkeit = "https://formsubmit.co/ajax/e1c8ab6cf84cb805b3ab50a8f4535a6e";
+    var zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
+    console.log(zustandigkeit);
     function zustandigkeitAndern() {
-      switch (document.getElementById("ploblemart").value) {
+      switch (document.getElementById("problemart").value) {
         case "Hardware_Bildschirm":
-          zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
+        //  zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
+        zustandigkeit = "https://formsubmit.co/ajax/klose.k@gmx.net";
           break;
         case "Hardware_PC":
           zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
@@ -179,6 +182,7 @@
         default:
           break;
       }
+      console.log(zustandigkeit);
     }
     // onkeyup event will occur when the user
     // release the key and calls the function
@@ -224,7 +228,7 @@
     }
 
     function mail_senden() {
-      /*
+
       var email = document.getElementById("email").value;
       var vorname = document.getElementById("vorname").value;
       var nachname = document.getElementById("nachname").value;
@@ -234,14 +238,14 @@
       var ort = document.getElementById("ort").value;
       var art = document.getElementById("problemart").value;
       var text = document.getElementById("freitext").value;
-      */
+
       $.ajax({
-        type: 'POST',
+        method: 'POST',
         url: 'zustandigkeit',
         dataType: 'json',
         accepts: 'application/json',
         data: {
-          Email: document.getElementById("email").value,
+        /*  Email: document.getElementById("email").value,
           Vorname: document.getElementById("vorname").value,
           Nachname: document.getElementById("nachname").value,
           Telefonnummer: document.getElementById("telnr").value,
@@ -249,17 +253,26 @@
           PcNummer: document.getElementById("pcnr").value,
           Ort: document.getElementById("ort").value,
           Schlagwort: document.getElementById("problemart").value,
-          Freitext: document.getElementById("freitext").value,
+          Freitext: document.getElementById("freitext").value,*/
+          Email: email,
+          Vorname: vorname,
+          Nachname: nachname,
+          Telefonnummer: tel,
+          Buero: buero,
+          PcNummer: pcnr,
+          Ort: ort,
+          Schlagwort: art,
+          Freitext: text,
         },
         success: (data) => console.log(data),
         error: (err) => console.log(err)
       });
     }
     //Unit Tests
-    function testeUnit() {
+  function testeUnit() {
       //Kevin
       $.ajax({
-        type: 'POST',
+        method: 'POST',
         url: 'include/db_speichern.php',
         dataType: 'json',
         accepts: 'application/json',
@@ -267,14 +280,14 @@
           email: "kevin.klose@aiv.hfoed.de",
           pcnr: "001",
           ort: "Behörde",
-          schlagwort: "Hardware_Bildschirm"
-          freitext: "Hello World 1"
-        }
+          schlagwort: "Hardware_Bildschirm",
+          freitext: "Hello World 1",
+        },
         success: (data) => console.log(data),
         error: (err) => console.log(err)
       });
       $.ajax({
-        type: 'POST',
+        method: 'POST',
         url: 'zustandigkeit',
         dataType: 'json',
         accepts: 'application/json',
@@ -294,7 +307,7 @@
       });
       //Matthias
       $.ajax({
-        type: 'POST',
+        method: 'POST',
         url: 'include/db_speichern.php',
         dataType: 'json',
         accepts: 'application/json',
@@ -302,14 +315,14 @@
           email: "matthias.feil@aiv.hfoed.de",
           pcnr: "001",
           ort: "Homeoffice",
-          schlagwort: "Netzwerk"
-          freitext: "Hello World 2"
-        }
+          schlagwort: "Netzwerk",
+          freitext: "Hello World 2",
+        },
         success: (data) => console.log(data),
         error: (err) => console.log(err)
       });
       $.ajax({
-        type: 'POST',
+        method: 'POST',
         url: 'zustandigkeit',
         dataType: 'json',
         accepts: 'application/json',
@@ -329,7 +342,7 @@
       });
       //Regina
       $.ajax({
-        type: 'POST',
+        method: 'POST',
         url: 'include/db_speichern.php',
         dataType: 'json',
         accepts: 'application/json',
@@ -337,14 +350,14 @@
           email: "reginamarga.richter@aiv.hfoed.de",
           pcnr: "003",
           ort: "Behörde",
-          schlagwort: "Hardware_Bildschirm"
-          freitext: "Hello World 3"
-        }
+          schlagwort: "Hardware_Bildschirm",
+          freitext: "Hello World 3",
+        },
         success: (data) => console.log(data),
         error: (err) => console.log(err)
       });
       $.ajax({
-        type: 'POST',
+        method: 'POST',
         url: 'zustandigkeit',
         dataType: 'json',
         accepts: 'application/json',

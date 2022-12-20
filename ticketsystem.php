@@ -40,7 +40,9 @@
           <th data-priority="3">Ort</th>
           <th data-priority="3">Schlagwort</th>
           <th data-priority="3">Freitext</th>
-          <th data-priority="3">Ticket_loesen</th>
+          <th data-priority="3">Gelöst</th>
+          <th data-priority="3">Lösung</th>
+          <th data-priority="3">Ticket Lösen</th>
         </tr>
       </thead>
       <tbody>
@@ -68,6 +70,12 @@
             </td>
             <td>
                 <?php echo $inhalt->Freitext; ?>
+            </td>
+            <td>
+                <?php echo $inhalt->Gelöst; ?>
+            </td>
+            <td>
+                <?php echo $inhalt->Lösung; ?>
             </td>
             <td>
                 <a href="ticket.php?TicketID=<?=$inhalt->TicketID?>">Ticket lösen</a>
