@@ -33,8 +33,13 @@
 
       <div class="col-sm-3">
         <h5>TicketID</h5>
-        <input type="text" id="TicketID" value= <?=$id?> class="form-control" name="TicketID" disabled>
+        <input type="text" id="anzeige" value= <?=$id?> class="form-control" name="anzeige" disabled>
       </div>
+
+      <!-- dient zum Abspeichern, da es mit disabled nicht geht -->
+
+      <input type="text" id="TicketID" value= <?=$id?> class="form-control" name="TicketID" hidden>
+    
 
       <h5>Lösung</h5>
       <div class="input-group" name="loesung_in" id="loesung-in">
