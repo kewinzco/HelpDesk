@@ -72,7 +72,7 @@
                 <?php echo $inhalt->Freitext; ?>
             </td>
             <td>
-                <?php echo $inhalt->Gelöst; ?>
+                <?php $status=$inhalt->Gelöst; if($status==1) echo "gelöst"; else echo "ungelöst"; ?>
             </td>
             <td>
                 <?php echo $inhalt->Lösung; ?>
