@@ -143,7 +143,7 @@
         <!-- Submit button -->
         <div class="row">
           <div class="col-sm-4">
-            <button type="submit" name="absenden" onclick="mail_senden()">Absenden</button>
+            <button type="submit" id="submit" name="absenden" onclick="mail_senden()" disabled>Absenden</button>
             <!--  <button type="submit" name="absenden" >Absenden</button> -->
           </div>
         </div>
@@ -154,6 +154,11 @@
     <button name="testen" onclick="testeUnit()">Unit Test</button>
   </body>
   <script>
+    //Listens for changes in the checkbox input field and enables/disables
+    //submit button if the checkbox value changes
+    document.getElement.By.Id('checkbox').addEventListener('change', () => {
+      document.getElementById('submit').disabled = !this.checked;
+    });
     // Listens for changes in the 'email' input field and enables/unhides 
     //certain elements if the input value changes
     document.getElementById('email').addEventListener('change', () => {
