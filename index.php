@@ -20,7 +20,7 @@
   </head>
   <body>
     <!-- Form starts here -->
-    <form>
+    <form action="include/db_speichern.php" method="POST">
       <!-- Form heading -->
       <div class="container-fluid p-5 bg-primary text-white text-center">
         <h1>Ticket erstellen</h1>
@@ -136,7 +136,7 @@
         <!-- Checkbox for data security submit -->
         <div class="row">
           <fieldset>
-            <input type="checkbox" class="form-check-input" id="checkbox"> 
+            <input type="checkbox" class="form-check-input" id="checkbox">
             Ich stimme der Speicherung meiner E-Mailadresse für die Kontaktaufnahme zu
           </fieldset>
         </div>
@@ -159,7 +159,7 @@
     document.getElementById('checkbox').addEventListener('change', () => {
       document.getElementById('submit').disabled = !document.getElementById('checkbox').checked;
     });
-    // Listens for changes in the 'email' input field and enables/unhides 
+    // Listens for changes in the 'email' input field and enables/unhides
     //certain elements if the input value changes
     document.getElementById('email').addEventListener('change', () => {
       document.getElementById('vorname').disabled = false;
@@ -168,12 +168,12 @@
       document.getElementById('buero').disabled = false;
       document.getElementById('third').hidden = false;
     });
-    // Listens for changes in the 'pcnr' input field and unhides 
+    // Listens for changes in the 'pcnr' input field and unhides
     //a certain element if the input value changes
     document.getElementById('pcnr').addEventListener('change', () => {
       document.getElementById('fourth').hidden = false;
     });
-    // Listens for changes in the 'problemart' input field and sets 
+    // Listens for changes in the 'problemart' input field and sets
     //the corresponding recipient if the input value changes
     var zustandigkeit = "https://formsubmit.co/ajax/c5ff11483f1253e075b5843960816053";
     document.getElementById('problemart').addEventListener('change', () => {
@@ -244,8 +244,8 @@
         xmlhttp.send();
       }
     }
-    // Mail API. This will collect the corresponding information 
-    //from the form and Post them to FormSubmit for processing. 
+    // Mail API. This will collect the corresponding information
+    //from the form and Post them to FormSubmit for processing.
     function mail_senden() {
       var email = document.getElementById("email").value;
       var vorname = document.getElementById("vorname").value;
@@ -277,8 +277,8 @@
         error: (err) => console.log(err)
       });
     }
-    //Unit Tests. This will only be here for testing purposes and has to be deleted alongside 
-    //the above Unit Test button in a theoretical final build. It will automatically 
+    //Unit Tests. This will only be here for testing purposes and has to be deleted alongside
+    //the above Unit Test button in a theoretical final build. It will automatically
     //generate multiple unit test cases without the need to fill the form manually.
     function testeUnit() {
       //Creates a Unit Test adressed at Kevin

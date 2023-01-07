@@ -13,7 +13,7 @@
  </head>
  <body> <?php
            // Include the config file to establish a connection to the database
-           include('include/config.php'); 
+           include('include/config.php');
            // Select all rows from the ticketsystem table
            $sql = "select * from ticketsystem";
            // Execute the query and store the result
@@ -44,51 +44,57 @@
     // Loop through each element in the $daten array
     foreach ($daten as $inhalt) {
     ?> <tr>
-      <td> <?php 
+      <td> <?php
                 // Echo the value of the TicketID field of the current object in the loop
-                echo $inhalt->TicketID; 
+                echo $inhalt->TicketID;
                 ?> </td>
-      <td> <?php 
+      <td> <?php
                 // Echo the value of the Datum field of the current object in the loop
-                echo $inhalt->Datum; 
+                echo $inhalt->Datum;
                 ?> </td>
-      <td> <?php 
+      <td> <?php
                 // Echo the value of the AbsenderMail field of the current object in the loop
-                echo $inhalt->AbsenderMail; 
+                echo $inhalt->AbsenderMail;
                 ?> </td>
-      <td> <?php 
+      <td> <?php
                 // Echo the value of the PCNummer field of the current object in the loop
-                echo $inhalt->PCNummer; 
+                echo $inhalt->PCNummer;
                 ?> </td>
-      <td> <?php 
+      <td> <?php
                 // Echo the value of the Ort field of the current object in the loop
-                echo $inhalt->Ort; 
+                echo $inhalt->Ort;
                 ?> </td>
-      <td> <?php 
+      <td> <?php
                 // Echo the value of the Schlagwort field of the current object in the loop
-                echo $inhalt->Schlagwort; 
+                echo $inhalt->Schlagwort;
                 ?> </td>
-      <td> <?php 
+      <td> <?php
                 // Echo the value of the Freitext field of the current object in the loop
-                echo $inhalt->Freitext; 
+                echo $inhalt->Freitext;
                 ?> </td>
-      <td> <?php 
+      <td> <?php
                 // Echo "gelöst" if the value of the Gelöst field is 1, otherwise echo "ungelöst"
-                $status=$inhalt->Gelöst; 
-                if($status==1) echo "gelöst"; 
-                else echo "ungelöst"; 
+                $status=$inhalt->Gelöst;
+                if($status==1) echo "gelöst";
+                else echo "ungelöst";
                 ?> </td>
-      <td> <?php 
+      <td> <?php
                 // Echo the value of the Lösung field of the current object in the loop
-                echo $inhalt->Lösung; 
+                echo $inhalt->Lösung;
                 ?> </td>
       <td>
-       <a href="ticket.php?id=
-											<?php echo $inhalt->TicketID; ?>">Ticket Lösen </a>
+        <a href="ticket.php?TicketID=<?=$inhalt->TicketID?>">Ticket lösen</a>
       </td>
-     </tr> <?php
-    }
-    ?> </tbody>
-   </table>
+     </tr> <  <?php
+       }
+       ?>
+         </tbody>
+       </table>
+
+              <?php
+               $erg -> close(); //Verbindung wieder schließen
+               $conn -> close();
+               ?>
+               </fieldset>
  </body>
 </html>
