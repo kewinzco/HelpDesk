@@ -156,8 +156,8 @@
   <script>
     //Listens for changes in the checkbox input field and enables/disables
     //submit button if the checkbox value changes
-    document.getElement.By.Id('checkbox').addEventListener('change', () => {
-      document.getElementById('submit').disabled = !this.checked;
+    document.getElementById('checkbox').addEventListener('change', () => {
+      document.getElementById('submit').disabled = !document.getElementById('checkbox').checked;
     });
     // Listens for changes in the 'email' input field and enables/unhides 
     //certain elements if the input value changes
