@@ -20,8 +20,8 @@
   </head>
   <body>
     <!-- Form starts here -->
-  <!--  <form action="include/db_speichern.php" method="POST">-->
-    <form>
+     <form action="include/db_speichern.php" method="POST">
+
       <!-- Form heading -->
       <div class="container-fluid p-5 bg-primary text-white text-center">
         <h1>Ticket erstellen</h1>
