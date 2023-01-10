@@ -14,6 +14,9 @@
   <script src="https://api.jquery.com/jQuery.ajax"></script>
  </head>
  <body>
+   <div class="container-fluid p-5 bg-primary text-white text-center">
+     <h1>Ticket bearbeiten</h1>
+   </div>
   <!--Form starts here-->
   <form action="include/db_loesung_speichern.php" method="POST">
    <!-- Display the value of the $id variable in a disabled text field -->
@@ -32,6 +35,9 @@
    <div class="row">
     <div class="col-sm-4">
      <button type="submit" name="Ticketstatus auf gelöst setzen">Absenden</button>
+    </div>
+    <div class="col-sm-4">
+     <a href="./ticketsystem.php">Zurück zur Übersicht</a>
     </div>
    </div>
    </div>

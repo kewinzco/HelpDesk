@@ -23,9 +23,13 @@
                 $daten[] = $datensatz;
             }
           }
-      ?> <div data-role="main" class="ui-content">
-   <h1>Übersicht Ticketsystem</h1>
-   <table id="meineTabelle" data-role="table" class="ui-responsive" data-mode="columntoggle" data-column-btn-text="Spalten">
+      ?>
+      <div data-role="main" class="ui-content">
+
+        <div class="container-fluid p-5 bg-primary text-white text-center">
+          <h1>Übersicht Ticketsystem</h1>
+        </div>
+   <table id="meineTabelle" data-role="table" class="table table-bordered table-hover" data-mode="columntoggle" data-column-btn-text="Spalten">
     <thead>
      <tr>
       <th data-priority="4">TicketID</th>
@@ -72,12 +76,14 @@
                 // Echo the value of the Freitext field of the current object in the loop
                 echo $inhalt->Freitext;
                 ?> </td>
-      <td> <?php
+       <?php
                 // Echo "gelöst" if the value of the Gelöst field is 1, otherwise echo "ungelöst"
                 $status=$inhalt->Gelöst;
-                if($status==1) echo "gelöst";
-                else echo "ungelöst";
-                ?> </td>
+                if($status==1) {
+                  echo '<td class="bg-success"> gelöst</td>';
+                }
+                else echo '<td class="bg-warning">ungelöst</td>';
+                ?>
       <td> <?php
                 // Echo the value of the Lösung field of the current object in the loop
                 echo $inhalt->Lösung;
@@ -90,11 +96,11 @@
        ?>
          </tbody>
        </table>
-
+     </div>
               <?php
                $erg -> close(); //Verbindung wieder schließen
                $conn -> close();
                ?>
-               </fieldset>
+
  </body>
 </html>
