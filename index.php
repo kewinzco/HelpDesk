@@ -128,8 +128,8 @@
           <div class="col-sm-8">
             <h5>Problembeschreibung und bisherige Lösungsansätze</h5>
             <div class="input-group" name="freitext" id="freitext_in">
-              <textarea class="form-control" aria-label="With textarea" name="freitext" id="freitext" maxlength="65535"> <!-- maxlength für text bei mysql-->
-                Bitte hier das Problem näher beschreiben
+              <!-- maxlength für text bei mysql-->
+              <textarea class="form-control" aria-label="With textarea" name="freitext" id="freitext" maxlength="65535"> Bitte hier das Problem näher beschreiben
               </textarea>
             </div>
           </div>

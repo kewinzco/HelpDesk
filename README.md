@@ -17,7 +17,8 @@ Webserver:
   PHP-Version: 8.1.10
   phpMyAdmin Version 5.2.0
 
--> bei neuer DB ist create Database Befehl dabei, evtl. benötigt man dann diesen nicht mehr, müsste mal jemand bei Gelegenheit testen
+Wichtig: Für das Mailversenden wird formsubmit verwendet. Dies funktioniert nur im Chrome Browser ordnungsgemäß!!!
+
 Schritte um Projekt auf Maschine zum Laufen zu bringen:
 1. XAMPP installieren
 2. Repository downloaden
@@ -26,12 +27,11 @@ Schritte um Projekt auf Maschine zum Laufen zu bringen:
 5. Im Webbrowser 'localhost/phpmyadmin' aufrufen
 6. Auf dieser Seite eine neue Datenbank erstellen mit den Namen 'helpdesk'
 7. Datei helpdesk.sql aus dem GitHub-Projekt importieren
-8. Im Browser 'localhost/Helpdesk' aufrufen
+8. Im Browser 'http://localhost/HelpDesk/' aufrufen um Ticket abschicken zu können
+9. Im Browser 'http://localhost/HelpDesk/ticketsystem.php' aufrufen um Ticketübersicht zu sehen und Ticket auf Status gelöst setzen zu können.
 
 -> noch bearbeiten
 Anm:
 1.  Falls bei der Datenbank andere Standardwerte verwendet werden, z.B.Passwort vergeben oder
     ein anderer Benutzername, dann kann man diese unter include/config.php eintragen.
-2.  Sollte man das Projekt unter einen anderem Dateipfad abspeichern, dann muss man bei main.js
-    in der Funktion meme_speichern() bei dem Ajax-Aufruf die
-    url: "http://localhost/Testat2-main/include/insert.php", (Zeile 149) dementsprechend abändern.
+2. Funktion Mail versenden funktioniert nur im Browser Chrome
