@@ -20,7 +20,8 @@
   </head>
   <body>
     <!-- Form starts here -->
-    <form action="include/db_speichern.php" method="POST">
+  <!--  <form action="include/db_speichern.php" method="POST">-->
+    <form>
       <!-- Form heading -->
       <div class="container-fluid p-5 bg-primary text-white text-center">
         <h1>Ticket erstellen</h1>
@@ -256,10 +257,11 @@
       var ort = document.getElementById("ort").value;
       var art = document.getElementById("problemart").value;
       var text = document.getElementById("freitext").value;
+      console.log('zustandigkeit');
       // Ajax Post
       $.ajax({
         method: 'POST',
-        url: 'zustandigkeit',
+         url: zustandigkeit,
         dataType: 'json',
         accepts: 'application/json',
         data: {
@@ -272,11 +274,13 @@
           Ort: ort,
           Schlagwort: art,
           Freitext: text,
+
         },
         success: (data) => console.log(data),
         error: (err) => console.log(err)
       });
     }
+
     //Unit Tests. This will only be here for testing purposes and has to be deleted alongside
     //the above Unit Test button in a theoretical final build. It will automatically
     //generate multiple unit test cases without the need to fill the form manually.
