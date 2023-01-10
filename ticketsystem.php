@@ -91,13 +91,13 @@
       <td>
         <a href="ticket.php?TicketID=<?=$inhalt->TicketID?>">Ticket lösen</a>
       </td>
-     </tr> <  <?php
+     </tr>  <?php
        }
        ?>
          </tbody>
        </table>
      </div>
-              <?php
+            <?php
                $erg -> close(); //Verbindung wieder schließen
                $conn -> close();
                ?>
