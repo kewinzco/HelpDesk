@@ -20,7 +20,6 @@
       .graph {
         height: 250px;
         flex: 1;
-        border: solid 1px black;
         justify-content: center;
       }
     </style>
@@ -79,7 +78,7 @@
           ['Sonstiges', 2]
         ]);
         var options = {
-          title: 'My Daily Activities'
+          title: 'Kategorien'
         };
         var chart = new google.visualization.PieChart(document.getElementById('statistikKategorie'));
         chart.draw(data, options);
