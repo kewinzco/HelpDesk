@@ -1,5 +1,95 @@
-<!DOCTYPE html> <?php
- ?> <html lang="de">
+<!DOCTYPE html>
+<?php
+        // Include the config file to establish a connection to the database
+        include('include/config.php');
+        // Select all rows from the ticketsystem table
+        $sql = "select * from ticketsystem";
+        // Execute the query and store the result
+        if ($erg = $conn->query($sql)) {
+           // Fetch each row of the result as an object and store it in the $daten array
+           while ($datensatz = $erg->fetch_object()) {
+             $daten[] = $datensatz;
+         }
+       }
+
+       //Werte für Charts holen
+       //gelöst
+       $chart1_1 = "SELECT COUNT(TicketID) FROM `ticketsystem` WHERE Gelöst=1";
+       if($erg1 = $conn->query($chart1_1)){
+         $geloest= $erg1->fetch_row();
+       }
+       $chart1_2 = "SELECT COUNT(TicketID) FROM `ticketsystem` WHERE Gelöst=0";
+       if($erg2 = $conn->query($chart1_2)){
+         $ungeloest= $erg2->fetch_row();
+       }
+       //Mitarbeiter
+       $chart2_1 = "SELECT COUNT(TicketID) from `ticketsystem` JOIN `zustaendigkeit` ON zustaendigkeit.Schlagwort = ticketsystem.Schlagwort Where MitarbeiterEMail = 'reginamarga.richter@hof-university.de'";
+       if($m_1 = $conn->query($chart2_1)){
+         $rr= $m_1->fetch_row();
+       }
+       $chart2_2 = "SELECT COUNT(TicketID) from `ticketsystem` JOIN `zustaendigkeit` ON zustaendigkeit.Schlagwort = ticketsystem.Schlagwort Where MitarbeiterEMail = 'reginamarga.richter@hof-university.de'";
+       if($m_2 = $conn->query($chart2_2)){
+         $kk= $m_2->fetch_row();
+       }
+       $chart2_3 = "SELECT COUNT(TicketID) from `ticketsystem` JOIN `zustaendigkeit` ON zustaendigkeit.Schlagwort = ticketsystem.Schlagwort Where MitarbeiterEMail = 'matthias.feil@hof-university.de'";
+       if($m_3 = $conn->query($chart2_3)){
+        $mf= $m_3->fetch_row();
+       }
+       //Kategorien
+       $chart3_1 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='Sonstiges';";
+       if($k_1 = $conn->query($chart3_1)){
+        $s= $k_1->fetch_row();
+       }
+       $chart3_2 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='Hardware_Bildschirm'";
+       if($k_2 = $conn->query($chart3_2)){
+        $h_b= $k_2->fetch_row();
+       }
+       $chart3_3 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='Hardware_PC'";
+       if($k_3 = $conn->query($chart3_3)){
+        $h_p= $k_3->fetch_row();
+       }
+       $chart3_4 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='Hardware_Drucker'";
+       if($k_4 = $conn->query($chart3_4)){
+        $h_d= $k_4->fetch_row();
+       }
+       $chart3_5 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='Hardware_Handy'";
+       if($k_5 = $conn->query($chart3_5)){
+        $h_h= $k_5->fetch_row();
+       }
+       $chart3_6 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='Hardware_Sonstiges'";
+       if($k_6 = $conn->query($chart3_6)){
+        $h_s= $k_6->fetch_row();
+       }
+       $chart3_7 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='Netzwerk'";
+       if($k_7 = $conn->query($chart3_7)){
+        $netz= $k_7->fetch_row();
+       }
+      $chart3_8 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='Software_Office'";
+       if($k_8 = $conn->query($chart3_8)){
+        $s_o= $k_8->fetch_row();
+       }
+       $chart3_9 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='Software_Adobe'";
+       if($k_9 = $conn->query($chart3_9)){
+        $s_a= $k_9->fetch_row();
+       }
+       $chart3_10 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='Software_Sonstiges'";
+       if($k_10 = $conn->query($chart3_10)){
+        $s_s= $k_10 ->fetch_row();
+       }
+       $chart3_11 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='IT-Sicherheit_SpamMail'";
+       if($k_11 = $conn->query($chart3_11)){
+        $it_mail= $k_11->fetch_row();
+       }
+       $chart3_12 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='IT-Sicherheit_Sonstiges'";
+       if($k_12 = $conn->query($chart3_12)){
+        $it_s= $k_12->fetch_row();
+       }
+       $chart3_13 = "SELECT COUNT(TicketID) from `ticketsystem` WHERE Schlagwort='Beratung'";
+       if($k_13 = $conn->query($chart3_13)){
+        $b= $k_13->fetch_row();
+       }
+   ?>
+ <html lang="de">
   <head>
     <title>Help Desk</title>
     <meta charset="utf-8">
@@ -36,8 +126,8 @@
       function drawChart1() {
         var data = google.visualization.arrayToDataTable([
           ['Tickets', 'Prozent'],
-          ['Gelöst', 11],
-          ['Ungelöst', 7]
+          ['Gelöst', <?=$geloest[0]?>],
+          ['Ungelöst', <?=$ungeloest[0]?>]
         ]);
         var options = {
           title: 'Gelöste Tickets'
@@ -49,9 +139,9 @@
       function drawChart2() {
         var data = google.visualization.arrayToDataTable([
           ['Mitarbeiter', 'Prozent'],
-          ['Matthias', 11],
-          ['Regina', 2],
-          ['Kevin', 7]
+          ['Matthias', <?=$mf[0]?>],
+          ['Regina', <?=$rr[0]?>],
+          ['Kevin', <?=$kk[0]?>]
         ]);
         var options = {
           title: 'Mitarbeiter Auslastung'
@@ -63,19 +153,19 @@
       function drawChart3() {
         var data = google.visualization.arrayToDataTable([
           ['Kategorie', 'Prozent'],
-          ['Hardware_Drucker', 11],
-          ['IT-Sicherheit_SpamMail', 2],
-          ['Netzwerk', 2],
-          ['Software_Sonstiges', 2],
-          ['Beratung', 7],
-          ['Hardware_Handy', 2],
-          ['Hardware_Sonstiges', 2],
-          ['IT-Sicherheit_Sonstiges', 2],
-          ['Software_Office', 2],
-          ['Hardware_Bildschirm', 2],
-          ['Hardware_PC', 2],
-          ['Software_Adobe', 2],
-          ['Sonstiges', 2]
+          ['Sonstiges', <?=$s[0]?>],
+          ['Hardware_Bildschirm', <?=$h_b[0]?>],
+          ['Hardware_PC', <?=$h_p[0]?>],
+          ['Hardware_Drucker', <?=$h_d[0]?>],
+          ['Hardware_Handy', <?=$h_h[0]?>],
+          ['Hardware_Sonstiges', <?=$h_s[0]?>],
+          ['Netzwerk', <?=$netz[0]?>],
+          ['Software_Office', <?=$s_o[0]?>],
+          ['Software_Adobe', <?=$s_a[0]?>],
+          ['Software_Sonstiges', <?=$s_s[0]?>],
+          ['IT-Sicherheit_SpamMail', <?=$it_mail[0]?>],
+          ['IT-Sicherheit_Sonstiges', <?=$it_s[0]?>],
+          ['Beratung', <?=$b[0]?>]
         ]);
         var options = {
           title: 'Kategorien'
@@ -85,19 +175,7 @@
       }
     </script>
   </head>
-  <body> <?php
-           // Include the config file to establish a connection to the database
-           include('include/config.php');
-           // Select all rows from the ticketsystem table
-           $sql = "select * from ticketsystem";
-           // Execute the query and store the result
-           if ($erg = $conn->query($sql)) {
-              // Fetch each row of the result as an object and store it in the $daten array
-              while ($datensatz = $erg->fetch_object()) {
-                $daten[] = $datensatz;
-            }
-          }
-      ?> <div data-role="main" class="ui-content">
+  <body> <div data-role="main" class="ui-content">
       <div class="container-fluid p-5 bg-primary text-white text-center">
         <h1>Übersicht Ticketsystem</h1>
       </div>
@@ -176,6 +254,7 @@
       </table>
     </div> <?php
                $erg -> close(); //Close Connection
+               $erg1 -> close();
                $conn -> close();
                ?> </body>
   <script>
