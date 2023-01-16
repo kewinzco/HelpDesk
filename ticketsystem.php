@@ -254,7 +254,10 @@
       </table>
     </div> <?php
                $erg -> close(); //Close Connection
-               $erg1 -> close();
+               $erg1 -> close(); $erg2 -> close();
+               $m_1->close(); $m_2->close(); $m_3->close();
+               $k_1->close();$k_2->close(); $k_3->close(); $k_4->close(); $k_5->close(); $k_6->close();
+               $k_7->close(); $k_8->close(); $k_9->close(); $k_10->close(); $k_11->close(); $k_12->close(); $k_13->close();
                $conn -> close();
                ?> </body>
   <script>
