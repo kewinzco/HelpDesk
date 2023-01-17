@@ -17,6 +17,7 @@
    <div class="container-fluid p-5 bg-primary text-white text-center">
      <h1>Ticket bearbeiten</h1>
    </div>
+   <div style="padding-left: 5%; padding-top: 5%;">
   <!--Form starts here-->
   <form action="include/db_loesung_speichern.php" method="POST">
    <!-- Display the value of the $id variable in a disabled text field -->
@@ -26,11 +27,14 @@
    </div>
    <!-- Save the value of the $id variable in a hidden text field -->
    <input type="text" id="TicketID" value=<?=$id?> class="form-control" name="TicketID" hidden>
-   <h5>Lösung</h5>
-   <!-- Textarea for the solution input -->
-   <div class="input-group" name="loesung_in" id="loesung-in">
-    <textarea class="form-control" aria-label="With textarea" name="loesung" id="loesung">Bitte hier die Lösung angeben</textarea>
-   </div>
+   <br>
+    <div class="col-sm-6">
+      <h5>Lösung</h5>
+      <!-- Textarea for the solution input -->
+      <div class="input-group" name="loesung_in" id="loesung-in">
+       <textarea class="form-control" aria-label="With textarea" name="loesung" id="loesung">Bitte hier die Lösung angeben</textarea>
+      </div>
+    </div>
    <!-- Submit button to send the form -->
    <div class="row">
     <div class="col-sm-4">
@@ -43,6 +47,7 @@
    </div>
    <!--Form ends here-->
   </form>
+  </div>
   <!-- Empty script for potential future use -->
   <script></script>
  </body>
