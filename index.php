@@ -39,7 +39,7 @@
               <input type="text" id="email" class="form-control" onkeyup="GetDetail(this.value)" placeholder="beispiel@help-desk.de" name="email">
             </div>
           </div>
-        </div>
+        </div> <br>
         <!-- Second section of form (personal details) -->
         <div class="row" id="second">
           <!-- Input field for first name -->
@@ -70,7 +70,10 @@
           <!-- Third section of form (device details) -->
           <div class="col-sm-3">
             <h4>2. Angaben zum Gerät</h4>
-            <h5>PC-Nummer</h5>
+            <h5>PC-Nummer
+              <span class="glyphicon" title="PC-Nummer" data-bs-toggle="popover" data-bs-trigger="hover"
+              data-bs-content="Diese Nummer finden sie auf der Unterseite des Laptops oder auf der Rückseite des Bildschirms"> &#x1f6c8; </span>
+            </h5>
             <input type="text" class="form-control" placeholder="1234" name="pcnr" id="pcnr">
           </div>
         </div>
@@ -93,7 +96,11 @@
           </div>
           <!-- Dropdown menu for problem keyword -->
           <div class="col-sm-4">
-            <h5>Art des Problems</h5>
+            <h5>Art des Problems
+              <span class="glyphicon" title="Problemarten" data-bs-toggle="popover" data-bs-trigger="hover"
+                data-bs-content="Wählen Sie den Bereich aus in dem ihr Problem aufgetaucht ist.
+                Auf Grundlage dessen wird der verantwortliche IT-Mitarbeiter ausgewählt."> &#x1f6c8; </span>
+              </h5>
             <select class="form-select" name="schlagwort" id="problemart">
               <optgroup label="Hardware">
                 <option name="schlagwort" value="Hardware_Bildschirm">Bildschirm</option>
@@ -122,7 +129,7 @@
               </optgroup>
             </select>
           </div>
-        </div>
+        </div> <br>
         <div class="row">
           <!-- Textarea for problem description -->
           <div class="col-sm-8">
@@ -133,7 +140,7 @@
               </textarea>
             </div>
           </div>
-        </div>
+        </div> <br>
         <!-- Checkbox for data security submit -->
         <div class="row">
           <fieldset>
@@ -154,6 +161,13 @@
     <!-- Unit Test button. For more information see below function testeUnit(). Uncomment for testing purposes -->
   <!--  <button name="testen" onclick="testeUnit()">Unit Test</button> -->
   </body>
+<script>
+  //Script für Hinweise
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+})
+</script>
   <script>
     //Listens for changes in the checkbox input field and enables/disables
     //submit button if the checkbox value changes
