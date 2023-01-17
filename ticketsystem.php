@@ -27,7 +27,7 @@
        if($m_1 = $conn->query($chart2_1)){
          $rr= $m_1->fetch_row();
        }
-       $chart2_2 = "SELECT COUNT(TicketID) from `ticketsystem` JOIN `zustaendigkeit` ON zustaendigkeit.Schlagwort = ticketsystem.Schlagwort Where MitarbeiterEMail = 'reginamarga.richter@hof-university.de'";
+       $chart2_2 = "SELECT COUNT(TicketID) from `ticketsystem` JOIN `zustaendigkeit` ON zustaendigkeit.Schlagwort = ticketsystem.Schlagwort Where MitarbeiterEMail = 'kevin.klose@hof-university.de'";
        if($m_2 = $conn->query($chart2_2)){
          $kk= $m_2->fetch_row();
        }
@@ -103,7 +103,6 @@
     <style>
       .statistics {
         height: auto;
-        background-color: red;
         display: flex;
       }
 

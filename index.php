@@ -151,8 +151,8 @@
       </div>
       <!--Form ends here-->
     </form>
-    <!-- Unit Test button. For more information see below function testeUnit() -->
-    <button name="testen" onclick="testeUnit()">Unit Test</button>
+    <!-- Unit Test button. For more information see below function testeUnit(). Uncomment for testing purposes -->
+  <!--  <button name="testen" onclick="testeUnit()">Unit Test</button> -->
   </body>
   <script>
     //Listens for changes in the checkbox input field and enables/disables
