@@ -294,7 +294,7 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
           Ort: ort,
           Schlagwort: art,
           Freitext: text,
-          Link zum Ticketsystem: link
+          Ticketsystemlink: link
         },
         success: (data) => console.log(data),
         error: (err) => console.log(err)
