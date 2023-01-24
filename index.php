@@ -148,6 +148,11 @@
             Ich stimme der Speicherung meiner E-Mailadresse für die Kontaktaufnahme zu
           </fieldset>
         </div>
+        <div class="row">
+          <fieldset>
+            <input type="hidden" id="link" value=  "http://localhost/HelpDesk/ticketsystem.php">
+          </fieldset>
+        </div>
         <!-- Submit button -->
         <div class="row">
           <div class="col-sm-4">
@@ -271,6 +276,7 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
       var ort = document.getElementById("ort").value;
       var art = document.getElementById("problemart").value;
       var text = document.getElementById("freitext").value;
+      var link = document.getElementById("link").value;
       console.log('zustandigkeit');
       // Ajax Post
       $.ajax({
@@ -288,7 +294,7 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
           Ort: ort,
           Schlagwort: art,
           Freitext: text,
-
+          Link zum Ticketsystem: link
         },
         success: (data) => console.log(data),
         error: (err) => console.log(err)
