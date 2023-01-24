@@ -203,7 +203,7 @@
     // Loop through each element in the $daten array
     foreach ($daten as $inhalt) {
     ?> <tr>
-            <td> <?php
+            <td align="center"> <?php
                 // Echo the value of the TicketID field of the current object in the loop
                 echo $inhalt->TicketID;
                 ?> </td>
