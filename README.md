@@ -22,7 +22,7 @@ Wichtig: Für das Mailversenden wird formsubmit verwendet. Dies funktioniert nur
 Schritte um Projekt auf Maschine zum Laufen zu bringen:
 1. XAMPP installieren
 2. Repository downloaden
-3. Dateien unter 'htdocs' im XAMPP-Ordner speichern
+3. Dateien im XAMPP-Ordner unter C:\xampp\htdocs in einem neuen Ordner namens HelpDesk speichern
 4. XAMPP Apache und Mysql auf Control Panel starten
 5. Im Webbrowser 'http://localhost/phpmyadmin/' aufrufen
 6. Auf dieser Seite eine neue Datenbank erstellen mit den Namen 'helpdesk'
