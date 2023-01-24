@@ -24,14 +24,13 @@ Schritte um Projekt auf Maschine zum Laufen zu bringen:
 2. Repository downloaden
 3. Dateien unter 'htdocs' im XAMPP-Ordner speichern
 4. XAMPP Apache und Mysql auf Control Panel starten
-5. Im Webbrowser 'localhost/phpmyadmin' aufrufen
+5. Im Webbrowser 'http://localhost/phpmyadmin/' aufrufen
 6. Auf dieser Seite eine neue Datenbank erstellen mit den Namen 'helpdesk'
 7. Datei helpdesk.sql aus dem GitHub-Projekt importieren
 8. Im Browser 'http://localhost/HelpDesk/' aufrufen um Ticket abschicken zu können
 9. Im Browser 'http://localhost/HelpDesk/ticketsystem.php' aufrufen um Ticketübersicht zu sehen und Ticket auf Status gelöst setzen zu können.
 
--> noch bearbeiten
 Anm:
 1.  Falls bei der Datenbank andere Standardwerte verwendet werden, z.B.Passwort vergeben oder
     ein anderer Benutzername, dann kann man diese unter include/config.php eintragen.
-2. Funktion Mail versenden funktioniert nur im Browser Chrome
+2. Die Funktion eine Mail mit formsubmit zu versenden funktioniert nur im Browser Chrome.
